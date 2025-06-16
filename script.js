@@ -88,4 +88,98 @@ const resultado2 = plus(88, 20);
 console.log(`Tengo ${resultado2} manzanitas y ${resultado} naranjitas`);
 
 const resultadoExtranio = plus(plus(10, 20), plus(100, 0));
-console.log(resultadoExtranio)
+console.log(resultadoExtranio);
+
+// Tipos de funciones
+
+// Funciones por declaracion
+// La funcion mas basica, utilizando primero la palabra clave function, seguido del nombre de la funcion y luego el bloque de la funcion
+
+function saludar() {
+  return "Hola";
+}
+
+saludar();
+typeof saludar;
+
+// Funciones por expresion
+// Se utiliza para crar una funcion en el interior de una variable, lo que permite posteriormente ejecutar la variable como si fuera una funcion. Tener en cuenta que el nombre de la funcion pasa a ser inutil, ya que para el sistema no existe
+
+const saludo = function saludar() {
+  return "Hola";
+};
+
+saludo();
+
+// Funciones como objetos
+// Realmente no es tan util, pero se puede utilizar para declarar funciones como si fuesen objetos
+
+const saludar = new Function("return 'Hola';");
+
+saludar();
+
+// Funciones anonimas
+// Es un tipo de funcion que se declara sin nombre y se aloja en el interior de una variable, haciendo referencia a ella cada vez que queramos utilizarla
+
+const saludo1 = function () {
+  return "Hola";
+};
+
+saludo1;
+saludo1();
+
+// Funciones 'Callbacks'
+// Utilizada para pasar una funcion B por parametro a una funcion A, asi la funcion A puede ejecutar esa funcion B de forma generica desde su codigo, y asi podemos definirlas desde fuera de la funcion
+
+const fB = function () {
+  console.log("Funcion B ejecutada.");
+};
+
+const fA = function (callback) {
+  callback();
+};
+
+fA(fB)
+
+  // Funciones autoejecutables (IIFE)
+  // Es una funcion que se ejecuta a si misma al crearla, sin necesidad de llamarla
+
+(function () {
+    console.log("Hola!!");
+  })();
+
+// Funciones anidadas
+// Son funciones que pueden declarar otras funciones en el mismo bloque
+
+function funcionExterna() {
+  let variableExterna = "Hola, soy una variable de la funcion externa";
+
+  function funcionInterna() {
+    let variableInterna = " y yo soy una variable de la funcion interna";
+    console.log(variableExterna + variableInterna);
+  }
+  funcionInterna();
+}
+
+funcionExterna();
+
+// Clousure
+// Puede ser utilizado para crear una estructura de datos privados y controlar el acceso a ciertas variables, manteniendo la interfaz limpia y bien definida. Un Clousure se crea cada vez que una funcion es creada
+
+function crearContador() {
+  let contador = 0;
+
+  return {
+    incrementar: function () {
+      contador++;
+      console.log(contador);
+    },
+    decrementar: function () {
+      contador--;
+      console.log(contador);
+    },
+    obtenerValor: function () {
+      return contador;
+    },
+  };
+}
