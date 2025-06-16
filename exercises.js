@@ -91,6 +91,14 @@ const lucio = greeting('Lucio')
 // 16. Evaluar tipos
 // Escribí una función que reciba cualquier valor y diga si es string, number, o otro.
 
+function typeOfValue(value){
+    if(typeof value === 'string') return 'Is a string'
+    if(typeof value === 'number') return 'Is a number'
+    return 'is a different value'
+}
+
+console.log(typeOfValue(undefined))
+
 // 17. Valor por defecto
 // Creá una función que reciba un nombre. Si no se pasa ningún valor, usá "Anónimo" como valor por defecto usando ??.
 
