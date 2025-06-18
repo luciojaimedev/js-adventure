@@ -116,7 +116,7 @@ function sumarUno(num) {
   return num + 1;
 }
 
-console.log(duplicar(sumarUno(3), 5))
+console.log(duplicar(sumarUno(3), 5));
 
 // 16. Evaluar tipos
 // Escribí una función que reciba cualquier valor y diga si es string, number, o otro.
@@ -132,11 +132,39 @@ console.log(typeOfValue(undefined));
 // 17. Valor por defecto
 // Creá una función que reciba un nombre. Si no se pasa ningún valor, usá "Anónimo" como valor por defecto usando ??.
 
+function nombre(name) {
+  return name ?? 'Anónimo'
+}
+
+console.log(nombre());
+
 // 18. Comparar edades
 // Escribí una función que reciba dos edades y diga cuál es mayor o si son iguales.
 
-// 19. Resultado raro
+function getOlderAge(age1, age2){
+  if (age1 > age2) return `${age1} es mayor`
+  if (age1 < age2) return 'Que estas haciendo pa?'
+  if (age1 === age2) return 'Misma edad'
+}
+
+console.log(getOlderAge(37, 20))
+
+// 19. Resultado extraño
 // ¿Qué devuelve esta función? Escribila y analizala:
+
+function plus(numero, numero2) {
+  const suma = numero + numero2;
+  return suma;
+}
+
+const resultado = plus(45, 50);
+const resultado2 = plus(88, 20);
+console.log(`Tengo ${resultado2} manzanitas y ${resultado} naranjitas`);
+
+const resultadoExtranio = plus(plus(10, 20), plus(100, 0));
+console.log(resultadoExtranio); 
+
+// Devuelve 130, ya que es la suma de los valores de cada parametro
 
 // js
 // Copy
@@ -154,3 +182,14 @@ console.log(typeOfValue(undefined));
 // Si se pasa un género, que diga:
 
 // Sos hombre/mujer/etc.
+
+function userInformation(nombre, edad, genero=null){
+
+  if (genero === null) return `Hola ${nombre}, tenés ${edad} años. No informaste tu género`
+
+  if (genero !== 'Hombre' && genero !== 'Mujer' && genero !== 'No Binarie') return `Hola ${nombre}, tenés ${edad} años. Tu género es erroneo, ok?`
+
+  return `Hola ${nombre}, tenés ${edad} años. Sos ${genero}`
+}
+
+console.log(userInformation('Lucio', '28', 'No Binarie'))

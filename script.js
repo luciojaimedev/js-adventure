@@ -114,9 +114,9 @@ saludo();
 // Funciones como objetos
 // Realmente no es tan util, pero se puede utilizar para declarar funciones como si fuesen objetos
 
-const saludar = new Function("return 'Hola';");
+const saludar1 = new Function("return 'Hola';");
 
-saludar();
+saludar1();
 
 // Funciones anonimas
 // Es un tipo de funcion que se declara sin nombre y se aloja en el interior de una variable, haciendo referencia a ella cada vez que queramos utilizarla
@@ -140,13 +140,6 @@ const fA = function (callback) {
 };
 
 fA(fB)
-
-  // Funciones autoejecutables (IIFE)
-  // Es una funcion que se ejecuta a si misma al crearla, sin necesidad de llamarla
-
-(function () {
-    console.log("Hola!!");
-  })();
 
 // Funciones anidadas
 // Son funciones que pueden declarar otras funciones en el mismo bloque
