@@ -139,7 +139,7 @@ const fA = function (callback) {
   callback();
 };
 
-fA(fB)
+fA(fB);
 
 // Funciones anidadas
 // Son funciones que pueden declarar otras funciones en el mismo bloque
@@ -175,4 +175,120 @@ function crearContador() {
       return contador;
     },
   };
+}
+
+// Creación de Strings
+
+// Comillas simples
+
+let miCadena = "Esta es mi cadena";
+
+// Comillas dobles
+
+let otraCadena = "Esta es mi otra cadena";
+
+// Backtips
+
+let cadenaBack = `Esta es mi cadena`;
+
+// Concatenación con +
+
+let firstName = "Lucio";
+let lastName = "Jaime";
+let fullName = firstName + " " + lastName;
+
+// Concatenación con template literals
+
+fullName = `Mi nombre completo es: ${firstName} ${lastName}`;
+
+// Concatenación de array con join()
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let frutas = fruits.join("");
+
+// Concatenación con concat
+
+firstName = "Bienve";
+fullName = firstName.concat(" ", "Jaime");
+console.log(fullName);
+
+// Cómo escapar caracteres, por ejemplo ' o ". Alternando comillas o con caracter de escape o template literals
+
+let c = `Esto es una " do I'm from Motril`;
+c = "Esto es una \" do I'm from Motril";
+
+// Strings largos con saltos de línea
+
+let poema = `Lorem ipsum dolor sit,
+amet consectetur adipisicing
+elit.Sapiente voluptates
+delectus voluptatem.`;
+
+// if / else / else if
+
+let edad = 18;
+if (edad == 18) {
+  console.log("Es mayor de edad");
+} else if (edad > 13 && edad < 18) {
+  console.log("Es adolescente");
+} else {
+  console.log("Es menor de 13 años");
+}
+
+// Condicional ternario
+
+edad = 21;
+let mensaje = edad >= 18 ? "Es mayor de edad" : "Es menor de edad";
+console.log(mensaje);
+
+// Condicional Switch
+
+// Ejemplo 1
+switch (new Date().getDay()) {
+  case 6:
+    text = "Today is Saturday";
+    break;
+  case 0:
+    text = "Today is Sunday";
+    break;
+  default:
+    text = "Looking forward to the weekend";
+}
+
+// Ejemplo 2
+firstName = "Lucio";
+
+switch (firstName.lenght) {
+  case 6:
+    console.log("Su nombre tiene 6 caracteres");
+    break;
+  case 2:
+    console.log("Su nombre tiene 2 caracteres");
+    break;
+  default:
+    console.log(
+      `Su nombre no tiene ni 2 ni 6 caracteres, tiene ${firstName.lenght} caracteres`
+    );
+}
+
+// While
+
+let contador = 0;
+while (contador < 10) {
+  console.log(contador);
+  contador++;
+}
+
+// Do While
+
+contador = 0;
+do {
+  console.log(contador);
+  contador++;
+} while (contador < 10);
+
+// For
+
+for (let i = 0; i < 10; i++){
+  console.log(i)
 }
