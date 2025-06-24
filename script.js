@@ -258,7 +258,7 @@ switch (new Date().getDay()) {
 // Ejemplo 2
 firstName = "Lucio";
 
-switch (firstName.lenght) {
+switch (firstName.length) {
   case 6:
     console.log("Su nombre tiene 6 caracteres");
     break;
@@ -267,7 +267,7 @@ switch (firstName.lenght) {
     break;
   default:
     console.log(
-      `Su nombre no tiene ni 2 ni 6 caracteres, tiene ${firstName.lenght} caracteres`
+      `Su nombre no tiene ni 2 ni 6 caracteres, tiene ${firstName.length} caracteres`
     );
 }
 
@@ -292,3 +292,4 @@ do {
 for (let i = 0; i < 10; i++){
   console.log(i)
 }
+
