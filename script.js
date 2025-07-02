@@ -269,7 +269,7 @@ while (contador4 <= 100) console.log(contador4++);
 // 4. Contar cuantos numeros pares hay entre 1 y 50 (mostrar los pares en consola)
 
 let contador5 = 1;
-let numerosPares = 0
+let numerosPares = 0;
 
 while (contador5 <= 50) {
   if (contador5 % 2 === 0) {
@@ -283,12 +283,54 @@ console.log(`Hay ${numerosPares} pares`);
 // 5. Pedir al usuario con un prompt un numero y mostrar su tabla de multiplicar del 1 al 10 usando while
 
 // const numeroUsuario = prompt("Introduzca un numero");
-console.log(numeroUsuario);
-let multiplicador = 1;
+// console.log(numeroUsuario);
+// let multiplicador = 1;
 
-while (multiplicador <= 10) {
-  console.log(Number(numeroUsuario) * multiplicador);
-  multiplicador++;
-}
+// while (multiplicador <= 10) {
+//   console.log(Number(numeroUsuario) * multiplicador);
+//   multiplicador++;
+// }
 
 // 6. Simula que pedis una contraseña y la contraseña va a ser parmechiaaano, mientras la contraseña no sea parmechiaaano seguimos mostrando un prompt, cuando sea parmechiaaaano dejamos de mostrar el prompt y mostramos un alert que diga 'Se de algunas cosas'
+
+const iterateArray = function (arrayDefault) {
+  for (let i = 0; i < arrayDefault.length; i++) {
+    const element = arrayDefault[i];
+    console.log(element);
+  }
+};
+
+iterateArray(arrayDeFrutas);
+
+const bonzoAdulto = {
+  nombre: "Bonzo",
+  peso: "50 kgs",
+  altura: "3 metros",
+  raza: "labrador",
+};
+
+const garuAdulto = {
+  nombre: "Garu",
+  peso: "48 kgs",
+  altura: "3 metros",
+};
+
+const vexAdulto = {
+  nombre: "Cacona",
+  olor: "caca",
+  altura: "3 metros",
+};
+
+const animales = [garuAdulto, vexAdulto, bonzoAdulto];
+
+const iterationArrayAndThenObject = function (array) {
+  for (let i = 0; i < array.length; i++) {
+    const obj = array[i];
+    console.log(obj);
+    for (const key in obj) {
+      console.log(`tiene un ${key} cuyo valor es ${obj[key]}`);
+    }
+  }
+};
+
+iterationArrayAndThenObject(animales);
