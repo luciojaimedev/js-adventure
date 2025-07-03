@@ -334,3 +334,91 @@ const iterationArrayAndThenObject = function (array) {
 };
 
 iterationArrayAndThenObject(animales);
+
+try {
+  console.log("En el Try se agrega el codigo a evaluar");
+  noExiste;
+  console.log("Segundo mensaje del try");
+} catch (error) {
+  console.log(
+    "catch(error) al capturar un error muestra un mensaje en consola"
+  );
+  console.log(error);
+} finally {
+  console.log("Esto se ejecuta siempre despues del try-catch");
+}
+
+// Crear una función que reciba un array y un índice. Debe devolver el valor en ese índice.
+// Si el índice no existe, debe lanzar un error y manejarlo con try...catch.
+
+const frutitas = ["manzana", "banana", "naranja"];
+
+function arrayFrutitas(array, index) {
+  if (index < 0 || index > array.length) {
+    throw new Error(`Error, este ${index} no existe`);
+  }
+  try {
+    return array[index];
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+console.log(arrayFrutitas(frutitas, 2));
+
+//1 - Saltar los números pares -> Mostrar solo los números impares del 1 al 10.
+
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+for (let i = 0; i < numeros.length; i++) {
+  if (numeros[i] % 2 === 0) {
+    continue;
+  }
+  console.log(numeros[i]);
+}
+
+//2 - Detenerse en el primer múltiplo de 7 -> Recorrer los números del 1 al 20 e imprimirlos uno por uno hasta encontrar el primer múltiplo de 7.
+
+console.clear();
+
+const numeros2 = [2, 5, 9, 14, 18, 21, 30];
+for (let i = 0; i < numeros2.length; i++) {
+  console.log(numeros2[i]);
+  if (numeros2[i] % 7 === 0) {
+    console.log(`El Multiplo de 7 es ${numeros2[i]}`);
+    break;
+  }
+}
+
+//1 - Tenés un array llamado coordenadas. Cada elemento dentro de ese array es otro array con dos números. Esos números representan un punto en el espacio: la coordenada x y la coordenada y.
+
+// Recorre el array coordenadas usando un bucle y en cada vuelta del bucle, usá destructuración para separar los dos valores y mostrá un mensaje por consola
+
+const coordenadas = [
+  [10, 20],
+  [30, 40],
+  [50, 60],
+];
+
+for (let i = 0; i < coordenadas.length; i++) {
+  const [x, y] = coordenadas[i];
+  console.log(`Coordenada x ${x}, coordenada y ${y}`);
+}
+
+
+
+
+console.clear()
+
+//Usar desestructuración para obtener nombre y edad.
+// Desestructurar el array tripulacion para obtener los dos primeros miembros en variables llamadas primerCompanero y segundoCompanero.
+
+const luffy = {
+  nombre: "Monkey D. Luffy",
+  edad: 19,
+  tripulacion: ["Zoro", "Nami", "Usopp", "Sanji"]
+};
+
+const {nombre, edad, tripulacion} = luffy
+console.log(nombre, edad)
+const [primerCompanero, segundoCompanero] = luffy.tripulacion
+console.log(primerCompanero, segundoCompanero)
