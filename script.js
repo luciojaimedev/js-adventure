@@ -404,10 +404,7 @@ for (let i = 0; i < coordenadas.length; i++) {
   console.log(`Coordenada x ${x}, coordenada y ${y}`);
 }
 
-
-
-
-console.clear()
+console.clear();
 
 //Usar desestructuración para obtener nombre y edad.
 // Desestructurar el array tripulacion para obtener los dos primeros miembros en variables llamadas primerCompanero y segundoCompanero.
@@ -415,10 +412,91 @@ console.clear()
 const luffy = {
   nombre: "Monkey D. Luffy",
   edad: 19,
-  tripulacion: ["Zoro", "Nami", "Usopp", "Sanji"]
+  tripulacion: ["Zoro", "Nami", "Usopp", "Sanji"],
 };
 
-const {nombre, edad, tripulacion} = luffy
-console.log(nombre, edad)
-const [primerCompanero, segundoCompanero] = luffy.tripulacion
-console.log(primerCompanero, segundoCompanero)
+const { nombre, edad, tripulacion } = luffy;
+console.log(nombre, edad);
+const [primerCompanero, segundoCompanero] = luffy.tripulacion;
+console.log(primerCompanero, segundoCompanero);
+
+// Mostrar en consola: "Zoro usa el estilo Santoryu y su recompensa es de 320000000 berries."
+console.clear();
+const personaje = {
+  nombre: "Zoro",
+  edad: 21,
+  estilo: "Santoryu",
+  recompensa: 320000000,
+};
+
+console.log(
+  `${personaje.nombre} usa el estilo ${personaje.estilo} y su recompensa es de ${personaje.recompensa} berries`
+);
+
+// Cambiá el nombre del barco por "Going Merry"
+// Agregá una propiedad nueva que se llame velocidadMaxima con valor 50
+
+const barco = {
+  nombre: "Thousand Sunny",
+  tripulacion: 9,
+};
+
+barco.nombre = "Going Merry";
+barco.velocidadMaxima = 50;
+
+console.log(barco);
+
+// Mostrá en consola: "Tengo 5 manzanas", etc.
+console.clear();
+
+const frutas = {
+  manzana: 5,
+  banana: 3,
+  naranja: 2,
+  pera: 6,
+};
+
+for (const key in frutas) {
+  const element = frutas[key];
+  console.log(element);
+  console.log(`Tengo ${element} ${key}s`);
+}
+
+//   ✅  EJERCICIO 1: Sumar números
+// Crea una función llamada sumar que reciba cualquier cantidad de números como argumentos y devuelva la suma total.
+
+const funcionSumar = function (...arrayNum) {
+  let acumulador = 0;
+  for (let i = 0; i < arrayNum.length; i++) {
+    acumulador += arrayNum[i];
+  }
+  return acumulador;
+};
+
+console.log(funcionSumar(20, 30, 30, 40, 50));
+
+// ✅ EJERCICIO 2: Contar argumentos
+// Crea una función llamada contarArgumentos que reciba cualquier cantidad de argumentos y muestre en consola:
+// 👉 "Recibí X argumentos.", donde X es el número de argumentos pasados.
+
+const contarArgumentos = function (...argumentoArray) {
+  console.log(`Recibi ${argumentoArray.length} argumentos`)
+}
+
+contarArgumentos('asd', 'asd')
+
+// ✅ EJERCICIO 3: Clonar un array -> Crea un nuevo array que: Sea una copia exacta del original usando el operador spread y tenga agregada la fruta "pera" al final.
+// (Asegurate de que el array original no se modifique.)
+
+const frutas1 = ["manzana", "banana", "naranja"]
+const frutas2 = [...frutas1, 'pera']
+
+console.log(frutas2)
+
+// ✅ EJERCICIO 4: Combinar objetos -> Crea un nuevo objeto llamado combinado que contenga todas las propiedades de base y extra usando el operador spread.
+
+const base = { nombre: "Zoro", edad: 21 };
+const extra = { arma: "katanas", estilo: "Santoryu" };
+const combinado = {...base, ...extra}
+
+console.log(combinado)
