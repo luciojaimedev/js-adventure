@@ -480,23 +480,90 @@ console.log(funcionSumar(20, 30, 30, 40, 50));
 // 👉 "Recibí X argumentos.", donde X es el número de argumentos pasados.
 
 const contarArgumentos = function (...argumentoArray) {
-  console.log(`Recibi ${argumentoArray.length} argumentos`)
-}
+  console.log(`Recibi ${argumentoArray.length} argumentos`);
+};
 
-contarArgumentos('asd', 'asd')
+contarArgumentos("asd", "asd");
 
 // ✅ EJERCICIO 3: Clonar un array -> Crea un nuevo array que: Sea una copia exacta del original usando el operador spread y tenga agregada la fruta "pera" al final.
 // (Asegurate de que el array original no se modifique.)
 
-const frutas1 = ["manzana", "banana", "naranja"]
-const frutas2 = [...frutas1, 'pera']
+const frutas1 = ["manzana", "banana", "naranja"];
+const frutas2 = [...frutas1, "pera"];
 
-console.log(frutas2)
+console.log(frutas2);
 
 // ✅ EJERCICIO 4: Combinar objetos -> Crea un nuevo objeto llamado combinado que contenga todas las propiedades de base y extra usando el operador spread.
 
 const base = { nombre: "Zoro", edad: 21 };
 const extra = { arma: "katanas", estilo: "Santoryu" };
-const combinado = {...base, ...extra}
+const combinado = { ...base, ...extra };
 
-console.log(combinado)
+console.log(combinado);
+
+const numeros1 = [1, 2, 3, 4, 5];
+
+for (let i = 0; i < numeros1.length; i++) {}
+
+numeros1.forEach(() => {});
+
+function cc() {}
+
+const cc2 = (a, b) => ({ result: a + b, hola: "salu2" });
+
+console.log(cc2(1, 4));
+
+const objetoContenedor = {
+  name: "soy el contenedor",
+  objetoInterior: {},
+  inicializar() {
+    this.objetoInterior.fn = () => {
+      console.log(this.name); // 'this' se refiere al objetoContenedor
+    };
+  },
+};
+
+objetoContenedor.inicializar(); // Se define la función flecha en el contexto correcto
+objetoContenedor.objetoInterior.fn(); // Imprime: "soy el contenedor"
+
+// Mostrar nombre con función normal
+// Consigna: Creá un objeto usuario con una propiedad nombre y un método mostrar Nombre que use this para mostrar el nombre por consola.
+
+const usuario = {
+  nombre: "jorgito",
+  mostrarNombre() {
+    console.log(this.nombre);
+  },
+};
+
+usuario.mostrarNombre();
+
+// Método que devuelva una frase
+// Consigna: Un objeto animal con propiedad especie y un método hablar que diga: "Soy un <especie>" usando this.
+
+const animal = {
+  especie: "iguanita",
+  queSoy() {
+    console.log(`Soy una ${this.especie}`);
+  },
+};
+
+animal.queSoy();
+
+// Revertir un texto sin métodos
+// Consigna: Una función que reciba un string y devuelva otro string con los caracteres en orden inverso (usando for, no .reverse()).
+
+const str = "string cualquiera";
+console.log(str.length);
+console.log(str[16]);
+console.log(str[str.length - 1]);
+
+const inverseString = (string) => {
+  let element = '';
+  for (let i = string.length - 1; i >= 0; i--) {
+    element += string[i]
+  }
+  return element
+};
+
+console.log(inverseString("string"));
