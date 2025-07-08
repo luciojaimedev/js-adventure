@@ -559,11 +559,112 @@ console.log(str[16]);
 console.log(str[str.length - 1]);
 
 const inverseString = (string) => {
-  let element = '';
+  let element = "";
   for (let i = string.length - 1; i >= 0; i--) {
-    element += string[i]
+    element += string[i];
   }
-  return element
+  return element;
 };
 
 console.log(inverseString("string"));
+
+console.clear();
+
+const PersonajeNaruto = function (nombre, apellido, aldea) {
+  this.nombre = nombre;
+  this.apellido = apellido;
+  this.aldea = aldea;
+};
+
+PersonajeNaruto.prototype.saludo = function () {
+  console.log(
+    `Hola, soy ${this.nombre} ${this.apellido} de la aldea de la ${this.aldea} y te voy a sacar la chucha me oiste conchetumare`
+  );
+};
+
+const naruto = new PersonajeNaruto("Naruto", "Uzumaki", "Hoja");
+const shikamaru = new PersonajeNaruto("Shikamaru", "Nara", "Hoja");
+
+console.log(naruto);
+console.log(shikamaru);
+
+naruto.saludo();
+shikamaru.saludo();
+
+// 🔹 Ejercicio 1: Animales y Perros
+// Objetivo: Usar funciones constructoras y herencia prototípica para crear un Animal genérico y luego un Perro que hereda de él.
+
+// 1. Crear una función constructora Animal que tenga nombre y sonido
+// 2. Crear un método hacerSonido que muestre el sonido
+// 3. Crear una función constructora Perro que herede de Animal
+// 4. Perro debe tener también una raza
+// 5. Instanciar un perro y mostrar su sonido y raza
+// Resultado esperado con el perro "Firulais":
+// "Firulais hace: guau guau"
+// "Firulais es un perro de raza Labrador"
+
+const Animal = function (nombre, sonido) {
+  this.nombre = nombre;
+  this.sonido = sonido;
+};
+
+Animal.prototype.hacerSonido = function () {
+  console.log("anachi");
+};
+
+function Perro(nombre, sonido, raza) {
+  this.super = Animal;
+  this.super(nombre, sonido);
+  this.raza = raza;
+}
+
+Perro.prototype = new Animal();
+Perro.prototype.constructor = Perro;
+
+const firulais = new Perro("Firulais", "guau guau", "Labrador");
+
+console.log(firulais);
+firulais.hacerSonido();
+
+// 🔹 Ejercicio 2: Vehículo y Auto
+// Objetivo: Practicar la herencia entre un constructor genérico y uno más específico, agregando métodos distintos.
+
+// 1. Crear una función constructora Vehiculo con marca y velocidad
+// 2. Agregar un método acelerar que aumente la velocidad
+// 3. Crear una función constructora Auto que herede de Vehiculo
+// 4. Auto también debe tener un modelo
+// 5. Crear un método mostrarInfo que muestre marca, modelo y velocidad
+// Resultado esperado con el auto "Toyota Corolla":
+// "Toyota Corolla va a 60km/h"
+// (después de acelerar dos veces)
+// "Toyota Corolla va a 100km/h"
+
+const Vehiculo = function (marca, velocidad) {
+  this.marca = marca;
+  this.velocidad = velocidad;
+};
+
+Vehiculo.prototype.acelerar = function () {
+  return (this.velocidad += 20);
+};
+
+const Auto = function (marca, velocidad, modelo) {
+  this.super = Vehiculo;
+  this.super(marca, velocidad);
+  this.modelo = modelo;
+};
+
+Auto.prototype = new Vehiculo();
+Auto.prototype.constructor = Auto;
+
+Auto.prototype.mostrarInfo = function () {
+  console.log(
+    `Este auto es un ${this.marca} ${this.modelo} y va a ${this.velocidad}kms por hora`
+  );
+};
+
+const toyota = new Auto("Toyota", 60, "Corolla");
+console.log(toyota);
+toyota.acelerar();
+toyota.acelerar();
+toyota.mostrarInfo();
