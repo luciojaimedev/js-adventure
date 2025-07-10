@@ -668,3 +668,171 @@ console.log(toyota);
 toyota.acelerar();
 toyota.acelerar();
 toyota.mostrarInfo();
+
+class Reptil {
+  constructor(nombre, color) {
+    this.nombre = nombre;
+    this.color = color;
+  }
+
+  sonido() {
+    console.log("PSSSSSSSSPSSSSSS xD");
+  }
+}
+
+class Lagalto extends Reptil {
+  constructor(nombre, color, tamanio) {
+    super(nombre, color);
+    this.tamanio = tamanio;
+  }
+
+  frase() {
+    console.log("IGUANA LAGALTIJA LAGALTOOO");
+  }
+}
+
+const giovaniVazquez = new Lagalto("Giovanni Vazquez", "negro", "2 metros");
+console.log(giovaniVazquez);
+giovaniVazquez.frase();
+
+// 🧩 Ejercicio 1: Clase Producto y subclase Libro
+// Objetivo: Práctica básica de herencia y uso de super.
+// 1. Crea una clase Producto con propiedades: nombre, precio.
+// 2. Agregá un método mostrarInfo que devuelva un string con esos datos.
+// 3. Luego creá una clase Libro que extienda Producto y tenga también autor.
+// 4. Sobrescribí el método mostrarInfo para que también muestre el autor.
+// 5. Instanciá un libro y probá el método.
+
+class Producto {
+  constructor(nombre, precio) {
+    this.nombre = nombre;
+    this.precio = precio;
+  }
+  mostrarInfo() {
+    console.log(`Este producto es ${nombre} y cuesta ${precio} pesitos`);
+  }
+}
+class Libro extends Producto {
+  constructor(nombre, precio, autor) {
+    super(nombre, precio);
+    this.autor = null;
+  }
+
+  get onePieceAutor() {
+    return this.autor;
+  }
+
+  set setOnePieceAutor(autor) {
+    this.autor = autor;
+  }
+
+  mostrarInfo() {
+    if (this.autor === null) return console.error('El autor es obligatorio')
+    console.log(
+      `Este libro se titula ${this.nombre}, cuesta ${this.precio} pesitos y fue escrito por ${this.autor}`
+    );
+  }
+}
+
+const onePiece = new Libro("One Piece", "3200", "Eiichiro Oda");
+console.log(onePiece);
+onePiece.setOnePieceAutor = 'Eiichiro Oda'
+onePiece.mostrarInfo();
+console.log(onePiece.onePieceAutor)
+
+// 🧩 Ejercicio 2: Clase Vehiculo y subclases Auto y Moto
+// Objetivo: Aplicar herencia y métodos propios en subclases.
+// 1. Clase Vehiculo con propiedades: marca, modelo, velocidad.
+// 2. Método acelerar que aumente la velocidad en 10.
+// 3. Clase Auto que extienda Vehiculo y tenga propiedad puertas.
+// 4. Clase Moto que extienda Vehiculo y tenga propiedad tipo (ej: “scooter”).
+// 5. Sobrescribí acelerar en Moto para que sume solo 5.
+// 6. Instanciá uno de cada uno y probá acelerar.
+
+class Vehiculo1 {
+  constructor(marca, modelo, velocidad) {
+    this.marca = marca;
+    this.modelo = modelo;
+    this.velocidad = velocidad;
+  }
+  acelerar() {
+    this.velocidad += 10;
+  }
+}
+
+class Auto1 extends Vehiculo1 {
+  constructor(marca, modelo, velocidad, puertas) {
+    super(marca, modelo, velocidad);
+    this.puertas = puertas;
+  }
+}
+
+class Moto1 extends Vehiculo1 {
+  constructor(marca, modelo, velocidad, tipo) {
+    super(marca, modelo, velocidad);
+    this.tipo = tipo;
+  }
+  acelerar() {
+    this.velocidad += 5;
+  }
+
+  static sonido() {
+    console.log("ruuum ruuum");
+  }
+}
+
+Moto1.sonido();
+
+const fitito = new Auto1("Lamborghini", "Diablo", 300, 2);
+const miMotito = new Moto1("Jianshe", "JS-125", 125, "Enduro");
+fitito.acelerar();
+miMotito.acelerar();
+console.log(fitito);
+console.log(miMotito);
+
+// 🧩 Ejercicio 3: Clase CuentaBancaria y CuentaAhorro
+// Objetivo: Métodos con validaciones y super.
+// 1. Clase CuentaBancaria con titular, saldo.
+//    Métodos: depositar(cantidad), retirar(cantidad), verSaldo().
+//    Retirar debe verificar que haya suficiente saldo.
+// 2. Clase CuentaAhorro extiende CuentaBancaria.
+//    Tiene propiedad interés (porcentaje).
+//    Método aplicarInteres() que incremente el saldo.
+// 3. Instanciá una CuentaAhorro, depositá, aplicá interés y retirá.
+
+class CuentaBancaria {
+  constructor(titular, saldo) {
+    this.titular = titular;
+    this.saldo = saldo;
+  }
+  depositar(cantidad) {
+    this.saldo += cantidad;
+  }
+  retirar(cantidad) {
+    if (this.saldo < cantidad) return console.error(`Fondos insuficientes`);
+    this.saldo -= cantidad;
+  }
+  verSaldo() {
+    console.log(`Tenes ${this.saldo} en tu cuenta, pobre de mierda xD`);
+  }
+}
+
+class CuentaAhorro extends CuentaBancaria {
+  constructor(titular, saldo, interes) {
+    super(titular, saldo);
+    this.interes = interes;
+  }
+  aplicarInteres(interes) {
+    const interesesCalculados = (this.saldo * interes) / 100;
+    return (this.saldo = this.saldo + interesesCalculados);
+  }
+}
+
+const miCuenta = new CuentaAhorro("Lucio Jaime", 0, 0);
+console.log(miCuenta);
+miCuenta.depositar(500);
+miCuenta.aplicarInteres(20);
+miCuenta.retirar(1150);
+console.log(miCuenta);
+miCuenta.verSaldo();
+console.log(miCuenta);
