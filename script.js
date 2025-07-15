@@ -727,7 +727,7 @@ class Libro extends Producto {
   }
 
   mostrarInfo() {
-    if (this.autor === null) return console.error('El autor es obligatorio')
+    if (this.autor === null) return console.error("El autor es obligatorio");
     console.log(
       `Este libro se titula ${this.nombre}, cuesta ${this.precio} pesitos y fue escrito por ${this.autor}`
     );
@@ -736,9 +736,9 @@ class Libro extends Producto {
 
 const onePiece = new Libro("One Piece", "3200", "Eiichiro Oda");
 console.log(onePiece);
-onePiece.setOnePieceAutor = 'Eiichiro Oda'
+onePiece.setOnePieceAutor = "Eiichiro Oda";
 onePiece.mostrarInfo();
-console.log(onePiece.onePieceAutor)
+console.log(onePiece.onePieceAutor);
 
 // 🧩 Ejercicio 2: Clase Vehiculo y subclases Auto y Moto
 // Objetivo: Aplicar herencia y métodos propios en subclases.
@@ -836,3 +836,54 @@ miCuenta.retirar(1150);
 console.log(miCuenta);
 miCuenta.verSaldo();
 console.log(miCuenta);
+
+const fecha = new Date();
+console.log(fecha.toLocaleTimeString());
+const fechaNacimiento = new Date(1997, 4, 3);
+console.log(fechaNacimiento.toLocaleString());
+console.log(fecha.toDateString());
+
+//Ejercicio 1: Número aleatorio entre 1 y 10 ->  Generá un número entero aleatorio entre 1 y 10 e imprimilo en consola.
+
+console.log(Math.round(Math.random() * 10));
+
+// Ejercicio 2: Redondear número
+
+console.log(Math.round(8.3));
+
+//Ejercicio 3: Raíz cuadrada -> Enunciado: Pedí un número y devolvé su raíz cuadrada
+
+console.log(Math.sqrt(81));
+
+//Ejercicio 4: Adivina el número -> El programa genera un número aleatorio entre 1 y 5. El usuario tiene que adivinarlo. Si acierta, gana. Si no, se muestra el número correcto.
+console.clear();
+
+const laQuiniela = () => {
+  const numeroRandom = Math.ceil(Math.random() * 5);
+  const numeroIntroducido = parseInt(prompt("Introduzca un numero del 1 al 5"));
+
+  if (isNaN(numeroIntroducido)) {
+    console.error("Caracter invalido, por favor introduzca un numero");
+    return;
+  }
+
+  if (numeroIntroducido <= 0 || numeroIntroducido > 5) {
+    console.error("Numero invalido, introduzca un valor entre el 1 y el 5");
+    return;
+  }
+
+  if (numeroRandom !== numeroIntroducido) {
+    console.log(
+      `Fallaste bolas tristes, el numero ganador era el ${numeroRandom}`
+    );
+    return;
+  }
+
+  console.log("CONGRATULACIONES PA GANASTE UNA PS5");
+};
+
+
+// setInterval(()=>{
+// const numeroRandom = Math.ceil(Math.random() * 5);
+// console.log(numeroRandom)
+// }, 100)
