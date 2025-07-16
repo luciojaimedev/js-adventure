@@ -882,8 +882,73 @@ const laQuiniela = () => {
   console.log("CONGRATULACIONES PA GANASTE UNA PS5");
 };
 
-
 // setInterval(()=>{
 // const numeroRandom = Math.ceil(Math.random() * 5);
 // console.log(numeroRandom)
 // }, 100)
+
+//Ejercicio 1: Mostrar mensaje si el usuario está logueado ->  Si la variable logueado es verdadera, mostrar por consola el mensaje "Bienvenido de nuevo".
+
+const logueado = true;
+
+console.log(logueado && "Bienvenido de nuevo");
+
+//Ejercicio 2: Asignar nombre por defecto -> Si la variable nombre está vacía ("", null o undefined), asignarle "Invitado".
+// Mostrar el nombre final por consola.
+
+const greetingsUser = (nombre) => {
+  const nombreUsuario = nombre || "Invitado";
+  return nombreUsuario;
+};
+
+console.log(greetingsUser(""));
+
+//Ejercicio 3: Evitar ejecutar una función si no hace falta -> Si los datos no están cargados (variable yaCargado es false), entonces ejecutar la función cargarDatos() que imprime "Cargando...".
+
+let yaCargado = false;
+
+const cargarDatos = () => {
+  return yaCargado || console.log("Cargando...");
+};
+
+let cargaCompleta = yaCargado || cargarDatos();
+
+const asignarNombreUsuario = (nombre) => nombre || "Usuario Anonimo";
+
+const usuarioJorgito = {
+  edad: 34,
+  email: "jorgitolindo123@gmail.com",
+  nombreDeUsuario: asignarNombreUsuario("jorgito"),
+};
+
+console.log(usuarioJorgito);
+
+const emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const emailcito = "lucioCamioneta_580@hotmail.com";
+
+console.log(emailRegEx.test(emailcito));
+
+// if (emailRegEx.test(emailcito)) {
+//   alert("Email Aceptado!!");
+// } else {
+//   alert("Email Invalido");
+// }
+
+// Hacer una funcion que muestre un prompt pidiendo el mail del usuario, si el resultado es que el mail no es valido, seguir mostrando el prompt infinitamente hasta que sea un resultado valido y en ese caso le decimos 'Email Aceptado'
+
+console.clear();
+
+const pedirEmail = () => {
+  let userEmail = prompt("Introduzca su email");
+
+  if (userEmail === null)
+    return alert("Inicio de sesion cancelado, vuelva a reiniciar la ventana");
+
+  while (!emailRegEx.test(userEmail)) {
+    userEmail = prompt("Email erroneo, intente nuevamente con un email valido");
+  }
+
+  return alert("Email Aceptado");
+};
+
+pedirEmail();
