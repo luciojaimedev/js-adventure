@@ -923,10 +923,10 @@ const usuarioJorgito = {
 
 console.log(usuarioJorgito);
 
-const emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const emailcito = "lucioCamioneta_580@hotmail.com";
 
-console.log(emailRegEx.test(emailcito));
+console.log(EMAIL_REGEX.test(emailcito));
 
 // if (emailRegEx.test(emailcito)) {
 //   alert("Email Aceptado!!");
@@ -938,17 +938,68 @@ console.log(emailRegEx.test(emailcito));
 
 console.clear();
 
-const pedirEmail = () => {
-  let userEmail = prompt("Introduzca su email");
+// const pedirEmail = () => {
+//   let userEmail = prompt("Introduzca su email");
 
-  if (userEmail === null)
-    return alert("Inicio de sesion cancelado, vuelva a reiniciar la ventana");
+//   if (userEmail === null)
+//     return alert("Inicio de sesion cancelado, vuelva a reiniciar la ventana");
 
-  while (!emailRegEx.test(userEmail)) {
-    userEmail = prompt("Email erroneo, intente nuevamente con un email valido");
-  }
+//   while (!EMAIL_REGEX.test(userEmail)) {
+//     userEmail = prompt("Email erroneo, intente nuevamente con un email valido");
+//   }
 
-  return alert("Email Aceptado");
+//   return alert("Email Aceptado");
+// };
+
+// pedirEmail();
+
+import { PI } from "./exercises.js";
+
+console.log(PI);
+
+// 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+
+const charCounter = (chainText) => {
+  console.log(chainText.length);
 };
 
-pedirEmail();
+charCounter("Hola Mundo");
+
+// 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+
+const charCutter = (
+  string,
+  position = 0,
+  amountToDelete = 1,
+  startFromEnd = false
+) => {
+  if (startFromEnd) return string.slice(position, -amountToDelete);
+
+  return string.slice(position, amountToDelete);
+};
+
+console.log(charCutter("Hola Mundo", 0, 2));
+
+// 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+
+const returnArray = (string) => {
+  if (typeof string !== "string") return console.warn("ERROR ERROR ERROR");
+
+  return string.split(" ");
+};
+
+console.log(returnArray("Hola este es mi texto"));
+
+// 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+
+const repeatText = (string, timesToRepeat, spacer = " ") => {
+  if (typeof string !== "string")
+    return console.warn("otra vez hincha pelotas?");
+
+  if (typeof timesToRepeat !== "number")
+    return console.warn("otra vez hincha pelotas?");
+
+  return (string + spacer).repeat(timesToRepeat);
+};
+
+console.log(repeatText("hola que tal", 45));
