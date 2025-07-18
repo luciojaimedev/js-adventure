@@ -1003,3 +1003,32 @@ const repeatText = (string, timesToRepeat, spacer = " ") => {
 };
 
 console.log(repeatText("hola que tal", 45));
+
+// 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+
+// Hacemos una funcion que recorra un string
+// Tiene que empezar de atras para adelante (string.length)
+
+const invertedChars = (string) => {
+  let box = "";
+  for (let i = string.length - 1; i >= 0; i--) {
+    box += string[i];
+  }
+  console.log(box);
+};
+
+invertedChars("Hola Mundo");
+
+const invertedCharsMethods = (string) => {
+  let stringConverted = string.split("");
+  stringConverted.reverse();
+  console.log(stringConverted.join(''))
+};
+
+invertedCharsMethods("Hola Mundo");
+
+// 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+
+// 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+// 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
