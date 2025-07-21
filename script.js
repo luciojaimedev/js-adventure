@@ -1022,13 +1022,59 @@ invertedChars("Hola Mundo");
 const invertedCharsMethods = (string) => {
   let stringConverted = string.split("");
   stringConverted.reverse();
-  console.log(stringConverted.join(''))
+  console.log(stringConverted.join(""));
 };
 
 invertedCharsMethods("Hola Mundo");
 
 // 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
 
+const repeatedWordCounter = (string, finder) => {
+  let stringArray = string.split(" ");
+  let numerito = 0;
+  if (typeof finder !== "string" || typeof string !== "string")
+    return console.error("Valor incorrecto, introduzca un texto valido");
+  for (let i = 0; i < stringArray.length; i++) {
+    const element = stringArray[i];
+    if (element === finder) {
+      numerito++;
+    }
+  }
+  if (numerito === 0)
+    return console.log(`Esta palabra no se repite ninguna vez`);
+  if (numerito === 1)
+    return console.log(`Esta palabra se repite ${numerito} vez`);
+  console.log(`Esta palabra esta repetida ${numerito} veces`);
+  return numerito;
+};
+
+repeatedWordCounter("aa", "caca");
+
 // 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
 
+const palindromo = (string) => {
+  if (typeof string !== "string") return console.error("Caracter invalido");
+  const reversedString = string.split("").reverse().join("");
+  if (string === reversedString) {
+    return console.log(true);
+  }
+  console.log(false);
+};
+
+palindromo("salas");
+
 // 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+const patternDeleter = (string, pattern) => {
+  if (!string || !pattern) return console.warn("Se necesitan dos parametros");
+
+  if (typeof string !== "string" || typeof pattern !== "string")
+    return console.warn("Los parametros deben ser strings");
+
+  if (!string.includes(pattern))
+    return console.warn("pattern no esta borrando nada...");
+
+  return string.replaceAll(pattern, '');
+};
+
+console.log(patternDeleter("xyz1, xyz2, xyz3, xyz4, xyz5", "xyz"));
