@@ -1074,7 +1074,85 @@ const patternDeleter = (string, pattern) => {
   if (!string.includes(pattern))
     return console.warn("pattern no esta borrando nada...");
 
-  return string.replaceAll(pattern, '');
+  return string.replaceAll(pattern, "");
 };
 
 console.log(patternDeleter("xyz1, xyz2, xyz3, xyz4, xyz5", "xyz"));
+
+// 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+
+const randomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
+console.log(randomNumber(501, 600));
+
+// 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+
+const capicua = (number) => {
+  if (typeof number !== "number")
+    return console.warn("Este caracter es invalido, introduzca un numero");
+
+  if (number <= 9 && number >= 0)
+    return console.warn("Este numero es muy pequeño para ser capicua");
+
+  if (number < 0)
+    return console.warn("Los numeros negativos no pueden ser capicua...");
+
+  const reverseNumber = Number(number.toString().split("").reverse().join(""));
+
+  if (number !== reverseNumber)
+    return console.log(`El numero ${number} no es capicua`);
+
+  return console.log(`El numero ${number} es capicua, loquisimo...!!!`);
+};
+
+capicua(22);
+
+// 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+
+const factorial = (number) => {
+  let acumulator = 1;
+  for (let i = 1; i <= number; i++) {
+    acumulator *= i;
+    console.log(acumulator);
+  }
+  return acumulator;
+};
+
+factorial(5);
+
+// 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+
+const primeNumber = (number) => {
+  if (typeof number !== "number")
+    return console.warn("Este caracter es invalido, introduzca un numero");
+  let divisores = 0;
+  for (let i = 1; i <= number; i++) {
+    if (number % i === 0) {
+      divisores += number % i + 1;
+      console.log(divisores);
+    }
+  }
+
+  if (divisores <= 2) return console.log(`${number} es un numero primo`);
+
+  return console.log(`${number} NO es un numero primo`);
+};
+
+primeNumber(97);
+
+// 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+
+const evenOrOdd = (number) => {
+  if (typeof number !== "number")
+    return console.warn("Este caracter es invalido, introduzca un numero");
+
+  if (number % 2 === 0) return console.log(`${number} es un numero par`);
+
+  return console.log(`${number} es un numero impar`);
+};
+
+evenOrOdd(29);
+
+// 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
