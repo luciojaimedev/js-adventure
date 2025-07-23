@@ -22,7 +22,7 @@ console.log(estoEsUnaFuncion("30", 90));
 
 const funcionExpresada = function () {
   console.log(
-    "Esto es una funcion expresada pa, no se ve afectada por el hoisting, a menos que sea un var(cacona)"
+    "Esto es una funcion expresada pa, no se ve afectada por el hoisting, a menos que sea un var"
   );
 };
 
@@ -957,7 +957,7 @@ import { PI } from "./exercises.js";
 
 console.log(PI);
 
-// 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+// 2) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
 
 const charCounter = (chainText) => {
   console.log(chainText.length);
@@ -965,7 +965,7 @@ const charCounter = (chainText) => {
 
 charCounter("Hola Mundo");
 
-// 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+// 3) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
 
 const charCutter = (
   string,
@@ -980,7 +980,7 @@ const charCutter = (
 
 console.log(charCutter("Hola Mundo", 0, 2));
 
-// 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+// 4) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
 
 const returnArray = (string) => {
   if (typeof string !== "string") return console.warn("ERROR ERROR ERROR");
@@ -990,7 +990,7 @@ const returnArray = (string) => {
 
 console.log(returnArray("Hola este es mi texto"));
 
-// 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+// 5) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
 
 const repeatText = (string, timesToRepeat, spacer = " ") => {
   if (typeof string !== "string")
@@ -1004,7 +1004,7 @@ const repeatText = (string, timesToRepeat, spacer = " ") => {
 
 console.log(repeatText("hola que tal", 45));
 
-// 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+// 6) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
 
 // Hacemos una funcion que recorra un string
 // Tiene que empezar de atras para adelante (string.length)
@@ -1027,7 +1027,7 @@ const invertedCharsMethods = (string) => {
 
 invertedCharsMethods("Hola Mundo");
 
-// 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+// 7) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
 
 const repeatedWordCounter = (string, finder) => {
   let stringArray = string.split(" ");
@@ -1050,7 +1050,7 @@ const repeatedWordCounter = (string, finder) => {
 
 repeatedWordCounter("aa", "caca");
 
-// 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+// 8) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
 
 const palindromo = (string) => {
   if (typeof string !== "string") return console.error("Caracter invalido");
@@ -1063,7 +1063,7 @@ const palindromo = (string) => {
 
 palindromo("salas");
 
-// 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+// 9) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
 
 const patternDeleter = (string, pattern) => {
   if (!string || !pattern) return console.warn("Se necesitan dos parametros");
@@ -1079,7 +1079,7 @@ const patternDeleter = (string, pattern) => {
 
 console.log(patternDeleter("xyz1, xyz2, xyz3, xyz4, xyz5", "xyz"));
 
-// 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+// 10) Programa una función que obtenga un numero aleatorio entre 501 y 600.
 
 const randomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -1087,7 +1087,7 @@ const randomNumber = (min, max) => {
 
 console.log(randomNumber(501, 600));
 
-// 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+// 11) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
 
 const capicua = (number) => {
   if (typeof number !== "number")
@@ -1109,7 +1109,7 @@ const capicua = (number) => {
 
 capicua(22);
 
-// 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+// 12) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
 
 const factorial = (number) => {
   let acumulator = 1;
@@ -1122,7 +1122,7 @@ const factorial = (number) => {
 
 factorial(5);
 
-// 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+// 13) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
 
 const primeNumber = (number) => {
   if (typeof number !== "number")
@@ -1130,8 +1130,7 @@ const primeNumber = (number) => {
   let divisores = 0;
   for (let i = 1; i <= number; i++) {
     if (number % i === 0) {
-      divisores += number % i + 1;
-      console.log(divisores);
+      divisores += (number % i) + 1;
     }
   }
 
@@ -1142,7 +1141,7 @@ const primeNumber = (number) => {
 
 primeNumber(97);
 
-// 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+// 14) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
 
 const evenOrOdd = (number) => {
   if (typeof number !== "number")
@@ -1155,4 +1154,77 @@ const evenOrOdd = (number) => {
 
 evenOrOdd(29);
 
-// 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+// 15) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+
+const temperatureTypeCalculator = (temperature, type) => {
+  if (typeof temperature !== "number")
+    return console.warn("Unicamente se permite introducir valores numericos");
+
+  if (type !== "C" && type !== "F")
+    return console.warn(
+      `Error en el valor introducido, rellene con 'C' para Celsius o 'F' para Fahrenheit`
+    );
+
+  if (type === "C") {
+    const celsiusToFarenheit = (temperature * 9) / 5 + 32 + "°F";
+    return console.log(
+      `${temperature}°${type} es igual a ${celsiusToFarenheit}`
+    );
+  }
+
+  if (type === "F") {
+    const fahrenheitToCelsius = ((temperature - 32) * 5) / 9 + "°C";
+    return console.log(
+      `${temperature}°${type} es igual a ${fahrenheitToCelsius}`
+    );
+  }
+};
+
+temperatureTypeCalculator(1, "C");
+
+// 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+const discountFunction = (price, discount) => {
+  if (typeof price !== "number" || typeof discount !== "number")
+    return console.warn("Unicamente se permite introducir valores numericos");
+
+  if (discount > 100 || discount <= 0)
+    return console.warn("El descuento debe estar entre 1% y el 100%");
+
+  const percentage = discount / 100;
+  const finalDiscount = price * percentage;
+
+  const finalPrice = price - finalDiscount;
+
+  return console.log(
+    `El valor del producto era de ${price} pesos, pero con tu descuento del ${discount}% el precio final queda en ${finalPrice}, tu descuento fue de ${finalDiscount} pesitos :)`
+  );
+};
+
+discountFunction(1000, 50);
+
+// 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
+const dateRecaller = (year, month, day) => {
+  if (
+    typeof year !== "number" ||
+    typeof month !== "number" ||
+    typeof day !== "number"
+  )
+    return console.warn("Introduzca valores numericos para las fechas");
+
+  const currentDate = new Date();
+  let finalDate = currentDate.getFullYear() - year;
+
+  if (currentDate.getMonth() + 1 < month) finalDate--;
+
+  if (currentDate.getMonth() + 1 === month && currentDate.getDate() < day)
+    finalDate--;
+
+  if (finalDate < year)
+    return console.log(`Faltan ${Math.abs(finalDate)} años`);
+
+  return console.log(`Pasaron ${finalDate} años`);
+};
+
+dateRecaller(2500, 6, 14);
