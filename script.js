@@ -1228,3 +1228,41 @@ const dateRecaller = (year, month, day) => {
 };
 
 dateRecaller(2500, 6, 14);
+
+// 18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+
+const vocalAndConsonantCounter = (string) => {
+  if (typeof string !== "string" || !string.trim())
+    return console.warn("El valor introducido es erroneo, inserte un string");
+
+  const vocals = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+
+  if (!/^[a-zA-Z\s]+$/.test(string)) {
+    return console.warn("Solo se permiten letras (sin números ni símbolos)");
+  }
+
+  let vocalCounter = 0;
+  let consonantCounter = 0;
+
+  for (let i = 0; i < string.length; i++) {
+    if (" ".includes(string[i])) {
+      consonantCounter--;
+    }
+
+    if (vocals.includes(string[i])) {
+      vocalCounter++;
+    } else {
+      consonantCounter++;
+    }
+  }
+
+  return console.log(
+    `La palabra ${string} tiene ${vocalCounter} vocales y ${consonantCounter} consonantes`
+  );
+};
+
+vocalAndConsonantCounter("Hola Mundo");
+
+// 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+
+// 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
