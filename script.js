@@ -1265,4 +1265,61 @@ vocalAndConsonantCounter("Hola Mundo");
 
 // 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
 
+const nameValidator = (name) => {
+  if (!/^[a-z ñ ,.'-]+$/i.test(name))
+    return console.warn("Solo se permiten nombres y/o apellidos validos");
+
+  return console.log(`${name} es un nombre completamente valido :)`);
+};
+
+nameValidator("Jonathan MirCha");
+
 // 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+
+const emailValidator = (email) => {
+  if (!EMAIL_REGEX.test(email))
+    return console.warn(
+      "Formato erroneo de email, por favor introduzca un valor permitido"
+    );
+
+  return console.log(`El email ${email} es valido!`);
+};
+
+emailValidator("avenge1997@gmail.com");
+
+// 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+
+const arraySquared = (array) => {
+  if (!array) return console.warn("Introduzca un valor");
+
+  if (!Array.isArray(array)) return console.warn("Esto no es un array");
+
+  const checkType = array.every((num) => typeof num === "number");
+  if (!checkType)
+    return console.error("Unicamente se pueden introducir numeros en el array");
+
+  const squared = array.map((num) => num * num);
+  return console.log(squared);
+};
+
+arraySquared([1, 2, 3, 4, 5, 6]);
+
+// 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+
+const lowerHigher = (array) => {
+  if (!array) return console.warn("Introduzca un valor");
+
+  if (!Array.isArray(array)) return console.warn("Esto no es un array");
+
+  const checkType = array.every((num) => typeof num === "number");
+  if (!checkType)
+    return console.error("Unicamente se pueden introducir numeros en el array");
+
+  const min = Math.min(...array);
+  const max = Math.max(...array);
+  return console.log([min, max]);
+};
+
+lowerHigher([-100, 25, 50, 100]);
+
+// 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
