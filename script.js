@@ -1353,9 +1353,7 @@ const ascendentDescendant = (array) => {
     return console.error("Unicamente se pueden introducir numeros en el array");
 
   const ascendentArray = [...array].sort((a, b) => a - b);
-  console.log(ascendentArray);
   const descendantArray = [...array].sort((a, b) => b - a);
-  console.log(descendantArray);
   return console.log(
     `Array Ascendente = ${ascendentArray} | Array Descendiente = ${descendantArray}`
   );
@@ -1388,10 +1386,187 @@ const arrayAverage = (array) => {
     contador = i + contador;
   }
   console.log(
-    `La suma de los numeros ${array} da ${contador} y el promedio total es de ${
+    `La suma de ${array.join(" + ")} da ${contador} y el promedio total es de ${
       contador / array.length
     }`
   );
 };
 
 arrayAverage([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
+
+//27) Programa una clase llamada Pelicula.
+
+// La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+
+//     Todos los datos del objeto son obligatorios.
+//     Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los
+
+//      7 restantes números.
+
+//     Valida que el título no rebase los 100 caracteres.
+//     Valida que el director no rebase los 50 caracteres.
+//     Valida que el año de estreno sea un número entero de 4 dígitos.
+//     Valida que el país o paises sea introducidos en forma de arreglo.
+//     Valida que los géneros sean introducidos en forma de arreglo.
+//     Valida que los géneros introducidos esten dentro de los géneros aceptados.
+
+//     Crea un método estático que devuelva los géneros aceptados*.
+//     Valida que la calificación sea un número entre 0 y 10 pudiendo ser decimal de una posición.
+
+//     Crea un método que devuelva toda la ficha técnica de la película.
+//     Apartir de un arreglo con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime la ficha técnica de cada película.
+
+//     Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+
+const Movie = function (
+  id,
+  title,
+  director,
+  yearRelease,
+  country,
+  genre,
+  calification
+) {
+  this.id = id;
+  this.title = title;
+  this.director = director;
+  this.yearRelease = yearRelease;
+  this.country = country;
+  this.genre = genre;
+  this.calification = calification;
+
+  if (typeof id !== "string" || !/^[a-zA-Z]{2}\d{7}$/.test(id))
+    return console.warn(
+      "Los 2 primeros caracteres del ID deben ser letras, seguido por 7 numeros"
+    );
+
+  if (typeof title !== "string" || title.length > 100)
+    return console.warn(
+      "El titulo solo puede ser en string y contener igual o menos de 100 caracteres"
+    );
+
+  if (typeof director !== "string" || director.length > 50)
+    return console.warn(
+      "El nombre del director solo puede ser en string y contener igual o menos de 100 caracteres"
+    );
+
+  if (typeof yearRelease !== "number" || yearRelease.toString().length !== 4)
+    return console.warn(
+      `${yearRelease} no es valido, se necesitan valores numericos enteros que no superen los 4 digitos`
+    );
+
+  if (!Array.isArray(country))
+    return console.warn("Solo se permite introducir un array");
+
+  if (country.length === 0) return console.warn("El array esta vacio");
+
+  const checkTypeCountry = country.every(
+    (country) => typeof country === "string"
+  );
+
+  if (!checkTypeCountry)
+    return console.error("Unicamente se pueden introducir strings en el array");
+
+  if (!Array.isArray(genre))
+    return console.warn("Solo se permite introducir un array");
+
+  if (genre.length === 0) return console.warn("El array esta vacio");
+
+  const invalidGenres = genre.filter(
+    (genre) => !Movie.availableGenres().includes(genre)
+  );
+  if (invalidGenres.length > 0)
+    return console.warn(
+      `Los siguientes generos no son validos: ${invalidGenres.join(", ")}`
+    );
+
+  const checkTypeGenre = genre.every((genre) => typeof genre === "string");
+  if (!checkTypeGenre)
+    return console.error("Unicamente se pueden introducir strings en el array");
+
+  if (
+    calification > 10 ||
+    calification < 1 ||
+    !/^(\d+(\.\d)?|\d+)$/.test(calification.toString())
+  )
+    return console.warn(
+      "Unicamente se puede calificar del 1 al 10 y con un solo decimal permitido"
+    );
+};
+
+Movie.availableGenres = () => [
+  "Action",
+  "Adult",
+  "Adventure",
+  "Animation",
+  "Biography",
+  "Comedy",
+  "Crime",
+  "Documentary",
+  "Drama",
+  "Family",
+  "Fantasy",
+  "Film Noir",
+  "Game-Show",
+  "History",
+  "Horror",
+  "Musical",
+  "Music",
+  "Mystery",
+  "News",
+  "Reality-TV",
+  "Romance",
+  "Sci-Fi",
+  "Short",
+  "Sport",
+  "Talk-Show",
+  "Thriller",
+  "War",
+  "Western",
+];
+
+const shrek2 = new Movie(
+  "tt0298148",
+  "Shrek 2",
+  "Andrew Adamson",
+  2004,
+  ["United States"],
+  ["Animation", "Adventure", "Comedy", "Family", "Fantasy", "Romance"],
+  7.4
+);
+
+const onePieceOmatsuri = new Movie(
+  "tt1018764",
+  "One Piece: Baron Omatsuri and the Secret Island",
+  "Mamoru Hosoda",
+  2005,
+  ["Japan"],
+  ["Animation", "Action", "Adventure", "Comedy", "Fantasy", "Mystery"],
+  7.2
+);
+
+const treasurePlanet = new Movie(
+  "tt0133240",
+  "Treasure Planet",
+  "Ron Clements",
+  2002,
+  ["United States"],
+  ["Animation", "Adventure", "Family", "Sci-Fi"],
+  7.2
+);
+
+Movie.prototype.technicalSheet = function () {
+  console.log(`ID: ${this.id}`);
+  console.log(`Titulo: ${this.title}`);
+  console.log(`Director: ${this.director}`);
+  console.log(`Lanzamiento: ${this.yearRelease}`);
+  console.log(`Pais de Origen: ${this.country}`);
+  console.log(`Genero: ${this.genre.join(", ")}`);
+  console.log(`Calificacion: ${this.calification}`);
+};
+
+shrek2.technicalSheet();
+onePieceOmatsuri.technicalSheet();
+treasurePlanet.technicalSheet();
+
+console.log(Movie.availableGenres());
