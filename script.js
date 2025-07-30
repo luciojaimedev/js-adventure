@@ -1418,81 +1418,79 @@ arrayAverage([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
 
 //     Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
-const Movie = function (
-  id,
-  title,
-  director,
-  yearRelease,
-  country,
-  genre,
-  calification
-) {
-  this.id = id;
-  this.title = title;
-  this.director = director;
-  this.yearRelease = yearRelease;
-  this.country = country;
-  this.genre = genre;
-  this.calification = calification;
+class Movie {
+  constructor(id, title, director, yearRelease, country, genre, calification) {
+    this.id = id;
+    this.title = title;
+    this.director = director;
+    this.yearRelease = yearRelease;
+    this.country = country;
+    this.genre = genre;
+    this.calification = calification;
 
-  if (typeof id !== "string" || !/^[a-zA-Z]{2}\d{7}$/.test(id))
-    return console.warn(
-      "Los 2 primeros caracteres del ID deben ser letras, seguido por 7 numeros"
+    if (typeof id !== "string" || !/^[a-zA-Z]{2}\d{7}$/.test(id))
+      return console.warn(
+        "Los 2 primeros caracteres del ID deben ser letras, seguido por 7 numeros"
+      );
+
+    if (typeof title !== "string" || title.length > 100)
+      return console.warn(
+        "El titulo solo puede ser en string y contener igual o menos de 100 caracteres"
+      );
+
+    if (typeof director !== "string" || director.length > 50)
+      return console.warn(
+        "El nombre del director solo puede ser en string y contener igual o menos de 100 caracteres"
+      );
+
+    if (typeof yearRelease !== "number" || yearRelease.toString().length !== 4)
+      return console.warn(
+        `${yearRelease} no es valido, se necesitan valores numericos enteros que no superen los 4 digitos`
+      );
+
+    if (!Array.isArray(country))
+      return console.warn("Solo se permite introducir un array");
+
+    if (country.length === 0) return console.warn("El array esta vacio");
+
+    const checkTypeCountry = country.every(
+      (country) => typeof country === "string"
     );
 
-  if (typeof title !== "string" || title.length > 100)
-    return console.warn(
-      "El titulo solo puede ser en string y contener igual o menos de 100 caracteres"
+    if (!checkTypeCountry)
+      return console.error(
+        "Unicamente se pueden introducir strings en el array"
+      );
+
+    if (!Array.isArray(genre))
+      return console.warn("Solo se permite introducir un array");
+
+    if (genre.length === 0) return console.warn("El array esta vacio");
+
+    const invalidGenres = genre.filter(
+      (genre) => !Movie.availableGenres().includes(genre)
     );
+    if (invalidGenres.length > 0)
+      return console.warn(
+        `Los siguientes generos no son validos: ${invalidGenres.join(", ")}`
+      );
 
-  if (typeof director !== "string" || director.length > 50)
-    return console.warn(
-      "El nombre del director solo puede ser en string y contener igual o menos de 100 caracteres"
-    );
+    const checkTypeGenre = genre.every((genre) => typeof genre === "string");
+    if (!checkTypeGenre)
+      return console.error(
+        "Unicamente se pueden introducir strings en el array"
+      );
 
-  if (typeof yearRelease !== "number" || yearRelease.toString().length !== 4)
-    return console.warn(
-      `${yearRelease} no es valido, se necesitan valores numericos enteros que no superen los 4 digitos`
-    );
-
-  if (!Array.isArray(country))
-    return console.warn("Solo se permite introducir un array");
-
-  if (country.length === 0) return console.warn("El array esta vacio");
-
-  const checkTypeCountry = country.every(
-    (country) => typeof country === "string"
-  );
-
-  if (!checkTypeCountry)
-    return console.error("Unicamente se pueden introducir strings en el array");
-
-  if (!Array.isArray(genre))
-    return console.warn("Solo se permite introducir un array");
-
-  if (genre.length === 0) return console.warn("El array esta vacio");
-
-  const invalidGenres = genre.filter(
-    (genre) => !Movie.availableGenres().includes(genre)
-  );
-  if (invalidGenres.length > 0)
-    return console.warn(
-      `Los siguientes generos no son validos: ${invalidGenres.join(", ")}`
-    );
-
-  const checkTypeGenre = genre.every((genre) => typeof genre === "string");
-  if (!checkTypeGenre)
-    return console.error("Unicamente se pueden introducir strings en el array");
-
-  if (
-    calification > 10 ||
-    calification < 1 ||
-    !/^(\d+(\.\d)?|\d+)$/.test(calification.toString())
-  )
-    return console.warn(
-      "Unicamente se puede calificar del 1 al 10 y con un solo decimal permitido"
-    );
-};
+    if (
+      calification > 10 ||
+      calification < 1 ||
+      !/^(\d+(\.\d)?|\d+)$/.test(calification.toString())
+    )
+      return console.warn(
+        "Unicamente se puede calificar del 1 al 10 y con un solo decimal permitido"
+      );
+  }
+}
 
 Movie.availableGenres = () => [
   "Action",
@@ -1570,3 +1568,73 @@ onePieceOmatsuri.technicalSheet();
 treasurePlanet.technicalSheet();
 
 console.log(Movie.availableGenres());
+
+import beers from "./beers.js";
+console.log(beers);
+
+// 2. Generar una funcion que reciba como parametro el array de cervezas y
+//    un valor de alcohol (numero). La funcion debe devolver un nuevo array con
+//    las cervezas que no excedan el nivel etílico. Cada elemento del nuevo array
+//    debe ser un objeto que tenga sólo las propiedades name, (alcohol) abv y ("amargor") ibu
+
+// 3. Generar una función que reciba como parámetro un array de cervezas
+//    y devuelva un nuevo array con las 10 cervezas más alcohólicas
+
+// 4. Generar una función que reciba como parámetro un array
+//    de cervezas y devuelva un nuevo array con las 10 cervezas menos amargas
+
+// 5. Generar una función que reciba como parámetro un array de cervezas
+//    un nombre de propiedad y un valor booleano. Debe devolver un nuevo array
+//    con 10 cervezas ordenadas por la propiedad ingresada como segundo argumento
+//    de manera ascendente si el tercero es true o descendente si es false
+
+const beerWithoutExcessAlcohol = (array, number) => {
+  if (!array || !number) return console.log("Introduzca un valor");
+
+  if (!Array.isArray(array) || typeof number !== "number")
+    return console.warn(
+      "Introduzca el valor correcto e intente nuevamente (array en el primer valor y number en el segundo)"
+    );
+
+  const filteredByAbv = array.filter((beer) => beer.abv < number);
+  const mappedArray = filteredByAbv.map((beer) => ({
+    nombre: beer.name,
+    abv: beer.abv,
+    ibu: beer.ibu,
+  }));
+  return mappedArray;
+};
+console.log(beerWithoutExcessAlcohol(beers, 5));
+
+console.clear();
+
+const mostAlcoholicBeers = (array) => {
+  if (!array) return console.log("Introduzca un valor");
+
+  if (!Array.isArray(array)) return console.warn("Introduzca un array");
+
+  const alcoholMap = array.map((beer) => ({
+    name: beer.name,
+    abv: beer.abv,
+  }));
+  const alcoholFilter = alcoholMap.sort((a, b) => b.abv - a.abv);
+  return alcoholFilter.slice(0, 10);
+};
+
+console.log(mostAlcoholicBeers(beers));
+
+const lessBitterBeers = (array) => {
+  if (!array) return console.log("Introduzca un valor");
+
+  if (!Array.isArray(array)) return console.warn("Introduzca un array");
+
+  const bitternessMap = array.map((beer) => ({
+    name: beer.name,
+    ibu: beer.ibu,
+  }));
+
+  const ibuFilter = bitternessMap.sort((a, b) => a.ibu - b.ibu);
+  return ibuFilter.splice(10);
+};
+
+console.log(lessBitterBeers(beers));
