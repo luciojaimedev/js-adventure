@@ -1634,7 +1634,114 @@ const lessBitterBeers = (array) => {
   }));
 
   const ibuFilter = bitternessMap.sort((a, b) => a.ibu - b.ibu);
-  return ibuFilter.splice(10);
+  return ibuFilter.slice(0, 10);
 };
 
 console.log(lessBitterBeers(beers));
+
+console.clear();
+
+const beerSorting = (array, property, boolean) => {
+  const sortedArray = array
+    .sort((a, b) =>
+      boolean ? a[property] - b[property] : b[property] - a[property]
+    )
+    .slice(0, 10);
+
+  return sortedArray;
+};
+
+const mapByAbv = (array) =>
+  array.map((beer) => ({
+    name: beer.name || "Generic Name",
+    abv: beer.abv ?? 0,
+  }));
+
+const mapByIbu = (array) =>
+  array.map((beer) => ({
+    name: beer.name || "Generic Name",
+    ibu: beer.ibu ?? 0,
+  }));
+
+const beerFilter = (array, property, boolean) => {
+  if (!array) return console.log("Introduzca un valor");
+
+  if (!Array.isArray(array)) return console.warn("Introduzca un array");
+
+  if (typeof property !== "string")
+    return console.warn("Este valor tiene que ser un string");
+
+  if (property !== "abv" && property !== "ibu")
+    return console.warn("Unicamente se puede filtrar el abv o ibu");
+
+  if (boolean !== true && boolean !== false)
+    return console.warn("Solo se permite un valor booleano");
+
+  const sortedArray = beerSorting(array, property, boolean);
+
+  if (property === "abv") {
+    return mapByAbv(sortedArray);
+  }
+
+  return mapByIbu(sortedArray);
+};
+
+console.log(beerFilter(beers, "ibu", true));
+
+// setInterval: Se codea como arrow funcion o metodo de array, dentro de las llaves iria la accion y por fuera separado con una coma, el intervalo de segundos (1000 = 1 segundo), su funcion es repetir indefinidamente esa accion cada ese intervalo de tiempo
+
+// setInterval(() => {
+//   console.log("hola");
+// }, 3000);
+
+// setTimeout: Se codea exactamente igual que el setInterval, aunque su funcion es que despues del intervalo de tiempo, este hace la accion por unica vez
+
+// setTimeout(() => {
+//   console.log("Mensaje automatico despues de 5 segundos, unica vez");
+// }, 5000);
+
+// Codigo Sincrono
+
+(() => {
+  console.log("Codigo Sincrono");
+  console.log("Inicio");
+
+  function dos() {
+    console.log("Dos");
+  }
+
+  function uno() {
+    console.log("Uno");
+    dos();
+    console.log("Tres");
+  }
+
+  uno();
+  console.log("Fin");
+})();
+
+// Codigo Asincrono
+
+(() => {
+  console.log("Codigo Sincrono");
+  console.log("Inicio");
+
+  function dos() {
+    setTimeout(function () {
+      console.log("Dos");
+    }, 1000);
+  }
+
+  function uno() {
+    setTimeout(function () {
+      console.log("Uno");
+    }, 0);
+    dos();
+    console.log("Tres");
+  }
+
+  uno();
+  console.log("Fin");
+})();
+
+console.clear()
