@@ -1790,3 +1790,101 @@ squarePromise(0)
     console.log("Fin Promise");
   })
   .catch((err) => console.error(err));
+
+const funcionAsincronaDeclarada = async () => {
+  try {
+    console.log("Inicio Async Function");
+
+    let obj = await squarePromise(0);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await squarePromise(1);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await squarePromise(2);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await squarePromise(3);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await squarePromise(4);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await squarePromise(5);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    console.log("Fin Async Function");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+funcionAsincronaDeclarada();
+
+let id = Symbol("id");
+let id2 = Symbol("id2");
+
+console.log(id === id2);
+console.log(id, id2);
+console.log(typeof id, typeof id2);
+
+const NOMBRE = Symbol("nombre");
+const SALUDAR = Symbol("saludar");
+
+const persona = {
+  [NOMBRE]: "Lucio",
+  edad: 28,
+};
+console.log(persona);
+
+persona.NOMBRE = "Lucio Jaime";
+console.log(persona);
+console.log(persona.NOMBRE);
+console.log(persona[NOMBRE]);
+
+persona[SALUDAR] = () => {
+  console.log(`Hola`);
+};
+console.log(persona);
+persona[SALUDAR]();
+
+const set = new Set([1, 2, 3, 3, 4, true, true, false, "hola", "Hola", {}, {}]);
+console.log(set);
+console.log(set.size);
+
+const set2 = new Set();
+set2.add(1);
+set2.add(2);
+set2.add(3);
+set2.add(3);
+set2.add(4);
+set2.add(true);
+set2.add(true);
+set2.add(false);
+set2.add("hola");
+set2.add("Hola");
+set2.add({});
+set2.add({});
+
+console.log(set2);
+console.log(set2.size);
+
+for (let item of set) {
+  console.log(item);
+}
+
+set2.forEach((item) => console.log(item));
+
+// Podemos utilizar Array.from para convertir el set en arreglo y asi acceder a una posicion del array en especifico
+let arr = Array.from(set);
+console.log(arr[0]);
+
+set.delete(true);
+console.log(set);
+
+// Devuelve true o false dependiendo si el valor esta o no en el set
+console.log(set.has("hola"));
+
+// Limpia todo el set, es decir borra todos los valores del set
+set2.clear();
+console.log(set2);
