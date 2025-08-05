@@ -1888,3 +1888,86 @@ console.log(set.has("hola"));
 // Limpia todo el set, es decir borra todos los valores del set
 set2.clear();
 console.log(set2);
+
+let mapa = new Map();
+mapa.set("nombre", "Lucio");
+mapa.set("apellido", "Jaime");
+mapa.set("edad", 28);
+
+console.log(mapa);
+console.log(mapa.size);
+console.log(mapa.has("correo"));
+console.log(mapa.has("nombre"));
+console.log(mapa.get("nombre"));
+mapa.set("nombre", "Gintoki");
+console.log(mapa.get("nombre"));
+mapa.delete("apellido");
+console.log(mapa);
+
+for (let [key, value] of mapa) {
+  console.log(`Llave: ${key}, Valor: ${value}`);
+}
+
+const mapa2 = new Map([
+  ["nombre", "garu"],
+  ["edad", 11],
+  ["animal", "gato"],
+  [(null, "nulo")],
+]);
+
+console.log(mapa2);
+
+const llavesMapa2 = [...mapa2.keys()];
+const valoresMapa2 = [...mapa2.values()];
+
+console.log(llavesMapa2);
+console.log(valoresMapa2);
+
+const ws = new WeakSet();
+
+let valor1 = { valor1: 1 };
+let valor2 = { valor2: 2 };
+let valor3 = { valor3: 3 };
+
+ws.add(valor1);
+ws.add(valor2);
+
+console.log(ws);
+
+console.log(ws.has(valor1));
+console.log(ws.has(valor3));
+
+ws.delete(valor2);
+console.log(ws);
+
+ws.add(valor2);
+ws.add(valor3);
+console.log(ws);
+
+// setInterval(() => console.log(ws), 1000);
+
+// setTimeout(() => {
+//   valor1 = null;
+//   valor2 = null;
+//   valor3 = null;
+// }, 5000);
+
+console.clear();
+
+const wm = new WeakMap();
+let llave1 = {};
+let llave2 = {};
+let llave3 = {};
+
+wm.set(llave1, 1);
+wm.set(llave2, 2);
+
+console.log(wm.has(llave1));
+console.log(wm.has(llave3));
+
+wm.delete(llave2);
+console.log(wm);
+
+wm.set(llave2, 2);
+wm.set(llave3, 3);
+console.log(wm);
