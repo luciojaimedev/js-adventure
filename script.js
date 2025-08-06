@@ -1971,3 +1971,97 @@ console.log(wm);
 wm.set(llave2, 2);
 wm.set(llave3, 3);
 console.log(wm);
+
+const iterable = [1, 2, 3, 4, 5];
+
+//Accedemos al iterador del iterable
+const iterador = iterable[Symbol.iterator]();
+
+console.log(iterable);
+console.log(iterador);
+
+let next = iterador.next();
+
+while (!next.done) {
+  console.log(next.value);
+  next = iterador.next();
+}
+
+// Generators
+function* iterable2() {
+  yield "hola";
+  console.log("Hola Consola");
+  yield "hola2";
+  yield "hola3";
+  yield "hola4";
+}
+
+let iterador2 = iterable2();
+
+for (let y of iterador2) {
+  console.log(y);
+}
+
+const arr2 = [...iterable2()];
+console.log(arr2);
+
+function cuadrado(valor) {
+  setTimeout(() => {
+    return (
+      console.log({ valor, resultado: valor * valor }), Math.random() * 1000
+    );
+  });
+}
+
+function* generador() {
+  console.log("Inicia Generator");
+  yield cuadrado(0);
+  yield cuadrado(1);
+  yield cuadrado(2);
+  yield cuadrado(3);
+  yield cuadrado(4);
+  yield cuadrado(5);
+  console.log("Termina Generator");
+}
+
+let gen = generador();
+
+for (let y of gen) {
+  console.log(y);
+}
+
+const persona2 = {
+  nombre: "",
+  apellido: "",
+  edad: 0,
+};
+
+const manejador = {
+  set(obj, prop, valor) {
+    if (Object.keys(obj).indexOf(prop) === -1) {
+      console.error(`La propiedad ${prop} no existe en el objeto persona.`);
+      return false;
+    }
+    obj[prop] = valor;
+    return true;
+  },
+};
+
+const lucio = new Proxy(persona2, manejador);
+lucio.nombre = "Lucio";
+lucio.apellido = "Jaime";
+lucio.edad = 28;
+console.log(lucio);
+
+console.log(persona2);
+
+let aleatorio = Math.round(Math.random() * 100 + 5);
+const objUsuarios = {
+  [`id_${aleatorio}`]: "Valor Aleatorio",
+};
+const usuarios2 = ["Lucio", "Charly", "Dibella", "Garu", "Roy"];
+
+usuarios2.forEach(
+  (usuario, index) => (objUsuarios[`id_${index + 1}`] = usuario)
+);
+console.log(objUsuarios);
