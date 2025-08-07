@@ -2065,3 +2065,19 @@ usuarios2.forEach(
   (usuario, index) => (objUsuarios[`id_${index + 1}`] = usuario)
 );
 console.log(objUsuarios);
+
+console.log(window);
+window.lugar = "Contexto Global";
+
+function saludar3(saludo, aQuien) {
+  console.log(`${saludo} ${aQuien}, desde el ${window.lugar}`);
+}
+
+saludar3("Hola", "Garu");
+
+const obj = {
+  lugar: "Contexto Objeto",
+};
+
+saludar3.call(obj, "Hola", "Garu");
+saludar3.apply(obj, ["Adios", "Penny"]);
