@@ -1,0 +1,12 @@
+{
+  "comentario": "Lo que se vaya a escribir en JSON debe tener siempre comillas dobles, ya sea un parametro o valor (a excepcion del null o undefined)",
+  "string": "Lucio",
+  "number": "35",
+  "boolean": "true",
+  "array": ["jugar", "dormir", "comer"],
+  "object": {
+    "name": "Lucio",
+    "surname": "Jaime"
+  },
+  "null": null
+}
