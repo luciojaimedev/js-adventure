@@ -2081,3 +2081,10 @@ const obj = {
 
 saludar3.call(obj, "Hola", "Garu");
 saludar3.apply(obj, ["Adios", "Penny"]);
+
+// JSON.parse convierte los valores (se tienen que pasar como strings) en objetos
+console.log(JSON.parse("[1,2,3]"));
+
+// JSON.stringify convierte los valores en strings
+console.log(JSON.stringify([1, 2, 3]));
+
