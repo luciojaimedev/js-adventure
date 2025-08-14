@@ -57,3 +57,38 @@ $body.style.backgroundColor = varDarkColor;
 $body.style.color = varYellowColor;
 
 $html.style.setProperty("--dark-color", "black");
+
+const $card = document.querySelector(".card");
+
+$card.classList.add("rotate-45", "sepia");
+$card.classList.remove("sepia");
+
+// Tal como se pueden agregar o sacar clases, tambien se pueden togglear, en este caso se agrega sepia a las clases porque no la tenia, pero si la tuviera el toggle la eliminaria como un remove
+$card.classList.toggle("sepia");
+
+// Reemplaza el primer valor (en este caso sepia) con el segundo (opacity-30)
+$card.classList.replace("sepia", "opacity-30");
+
+const $whatIsDOM = document.getElementById("que-es");
+
+let text = `<p> El Modelo de Objectos del Documento (<b><i> DOM - Document Object Model</i></b>) es una API para documentos HTML y XML.</p>
+<p>
+Este provee una representacion estructural del documento, permitiendo modificar su contenido y presentacion visual mediante codigo JS.</p>
+<p><mark> El DOM no es parte de la especificacion de JavaScript, es una API para los navegadores</mark></p>`;
+
+// textContent sirve para añadir texto en HTML pero lee las etiquetas como parte del texto, es decir que textualmente quedaria "<p>hola</p>"
+$whatIsDOM.textContent = text;
+
+// innerHTML y outerHTML sirven para casi lo mismo, imprimen el texto en HTML respetando las etiquetas (no se muestran en el sitio), aunque inner crea un <p> con las especificaciones del ID/clase y el outer unicamente imprime el texto que le es otorgado
+$whatIsDOM.innerHTML = text;
+$whatIsDOM.outerHTML = text;
+
+const $cards = document.querySelector(".cards");
+
+console.log($cards.children);
+console.log($cards.parentElement);
+console.log($cards.firstElementChild);
+console.log($cards.lastElementChild);
+console.log($cards.previousElementSibling);
+console.log($cards.nextElementSibling);
+console.log($cards.closest("body"));
