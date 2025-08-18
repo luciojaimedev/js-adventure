@@ -1,3 +1,5 @@
+import characters from "./characters.js";
+
 // Elementos del documento
 console.log(window.document);
 console.log(document);
@@ -92,3 +94,68 @@ console.log($cards.lastElementChild);
 console.log($cards.previousElementSibling);
 console.log($cards.nextElementSibling);
 console.log($cards.closest("body"));
+
+const $template = document.getElementById("template-card");
+const $charactersSection = document.getElementById("section-characters");
+console.log($template);
+
+console.log(characters);
+
+$charactersSection.innerHTML = "<h1>xd</h1>";
+$charactersSection.innerHTML += "<h2>xasdsad</h2>";
+
+const $h3 = document.createElement("h3");
+
+$h3.innerText = "Gintama";
+$charactersSection.appendChild($h3);
+
+// FORMA PERUANA/INDIA
+// characters.forEach((character) => {
+//   $charactersSection.innerHTML += `<div class="card"><h3>${character.name}</h3> <img src="${character.image}" alt="This image is from ${character.name}"> <p>${character.description}</p></div>`;
+// });
+
+// FORMA CASI SEMIGOD
+// characters.forEach((character) => {
+//   const $card = document.createElement("div");
+//   const $image = document.createElement("img");
+//   const $name = document.createElement("h3");
+//   const $description = document.createElement("p");
+
+//   $name.innerText = character.name;
+
+//   $image.src = character.image;
+//   $image.alt = `This image is from ${character.name}`;
+
+//   $description.innerText = character.description;
+
+//   $card.appendChild($name);
+//   $card.appendChild($image);
+//   $card.appendChild($description);
+
+//   $charactersSection.appendChild($card);
+// });
+
+// FORMA CASI GOD
+const $fragment = document.createDocumentFragment();
+
+characters.forEach((character) => {
+  const $card = document.createElement("div");
+  const $image = document.createElement("img");
+  const $name = document.createElement("h3");
+  const $description = document.createElement("p");
+
+  $name.innerText = character.name;
+
+  $image.src = character.image;
+  $image.alt = `This image is from ${character.name}`;
+
+  $description.innerText = character.description;
+
+  $card.appendChild($name);
+  $card.appendChild($image);
+  $card.appendChild($description);
+
+  $fragment.appendChild($card);
+});
+
+$charactersSection.appendChild($fragment);

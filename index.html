@@ -8,7 +8,7 @@
     <style>
       :root {
         --yellow-color: #f7df1e;
-        --dark-color: #222;
+        --dark-color: #737373;
       }
 
       .card {
@@ -36,13 +36,9 @@
       .sepia {
         filter: sepia(1);
       }
-
     </style>
   </head>
   <body>
-    <script src="/script.js" type="module"></script>
-    <script src="/exercises.js" type="module"></script>
-    <script src="/dom.js" type="module"></script>
     <h3>Manejo del DOM</h3>
     <p id="que-es">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque quo
@@ -63,7 +59,7 @@
     <a
       href="index.html"
       class="link-dom"
-      style="background-color: #f7df1e; color: #222"
+      style="background-color: #f7df1e; color: #565656"
       data-description="Domain Object Model"
       >DOM</a
     >
@@ -104,6 +100,28 @@
         <figcaption>Watch</figcaption>
       </figure>
     </section>
-    <script src="/dom.js"></script>
+ 
+    <section id="section-characters"></section>
+   <style>
+      #section-characters {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      #section-characters div img {
+        height: 100px;
+        width: 100px;
+      }
+    </style>
+    <template id="template-card">
+      <img src="" alt="" />
+      <h2></h2>
+      <p></p>
+    </template>
+
+    <script src="/script.js" type="module"></script>
+    <script src="/exercises.js" type="module"></script>
+    <script src="/dom.js" type="module"></script>
   </body>
 </html>
