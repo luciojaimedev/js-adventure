@@ -1,0 +1,33 @@
+body {
+  width: 100%;
+}
+
+.toggle-div {
+  width: 50%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-color: aliceblue;
+}
+
+.toggle-button {
+  height: 100px;
+  width: 100px;
+  background-color: aliceblue;
+}
+
+.toggle-section {
+  background-color: red;
+  height: 500px;
+  width: 100%;
+}
+
+.dark-mode {
+  background-color: black;
+}
+
+.dark-mode button {
+  background-color: yellow;
+}
