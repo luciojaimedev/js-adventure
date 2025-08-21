@@ -1,23 +1,24 @@
-const $toggleButton = document.querySelector(".toggle-button");
-const $themeElements = document.querySelectorAll(".theme");
+const $toDoListInputText = document.getElementById("to-do-list-input-text");
+const $toDoListButton = document.getElementById("to-do-list-button");
+const $toDoListMain = document.getElementById("to-do-main");
 
-const THEME = "dark-mode";
+const toDoListTasks = [];
 
-let isDarkMode = false;
-
-const handleDarkMode = () => (isDarkMode = !isDarkMode);
-
-const updateThemeUI = (state, $elementList) => {
-  $elementList.forEach((el) => el.classList.toggle(THEME, state));
+const pushInputTextToArray = (array, input) => {
+  array.push(input.value);
 };
 
-const updateButtonUI = (state, $button) => {
-  $button.innerText = state ? "Default Theme" : "Dark Mode Theme";
-  $button.ariaLabel = state ? "Turn off Dark Theme" : "Turn on Dark Theme";
+const renderUI = (array) => {
+  $toDoListMain.innerHTML = "";
+
+  array.forEach((el) => {
+    const $newDiv = document.createElement("div");
+    $newDiv.innerText = el;
+    $toDoListMain.appendChild($newDiv);
+  });
 };
 
-$toggleButton.addEventListener("click", () => {
-  handleDarkMode();
-  updateThemeUI(isDarkMode, $themeElements);
-  updateButtonUI(isDarkMode, $toggleButton);
+$toDoListButton.addEventListener("click", () => {
+  pushInputTextToArray(toDoListTasks, $toDoListInputText);
+  renderUI(toDoListTasks);
 });

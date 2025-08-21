@@ -241,5 +241,3 @@ $divsEventos.forEach((div) => {
     once: true,
   });
 });
-
-
