@@ -6,13 +6,28 @@
     <title>Ejercicio de Charly</title>
     <link rel="stylesheet" href="/ejercicio.css" />
   </head>
-  <body>
+  <body class="theme">
+    <section class="toggle-section theme"></section>
     <div class="toggle-div theme">
       <button class="toggle-button theme" aria-label="Turn on Dark Theme">
         Dark Mode Theme
       </button>
     </div>
-    <section class="toggle-section theme"></section>
+
+    <section class="to-do-menu">
+      <div class="to-do-list-nav">
+        <input
+          type="text"
+          name="text"
+          id="to-do-list-input-text"
+          placeholder="Agrega una tarea"
+          value=""
+        />
+        <button id="to-do-list-button">Agregar</button>
+      </div>
+      <div id="to-do-main"></div>
+    </section>
+
     <script src="/ejercicio.js" type="module"></script>
   </body>
 </html>
