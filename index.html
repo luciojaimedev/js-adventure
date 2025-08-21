@@ -100,9 +100,9 @@
         <figcaption>Watch</figcaption>
       </figure>
     </section>
- 
+
     <section id="section-characters"></section>
-   <style>
+    <style>
       #section-characters {
         display: flex;
         gap: 20px;
@@ -113,16 +113,48 @@
         height: 100px;
         width: 100px;
       }
+
+      .eventos-flujo div {
+        padding: 4rem;
+        font-size: 2rem;
+        text-align: center;
+        color: black;
+      }
+
+      .uno {
+        background-color: yellow;
+      }
+
+      .dos {
+        background-color: gold;
+      }
+
+      .tres {
+        background-color: lightyellow;
+      }
     </style>
     <template id="template-card">
       <img src="" alt="" />
       <h2></h2>
       <p></p>
     </template>
-<h3>Eventos en Javascript</h3>
-<h4>Manejadores de Eventos</h4>
-<button id="evento-semantico">Evento con manejador semantico</button>
-<button id="evento-multiple">Evento con manejador multiple</button>
+    <h3>Eventos en Javascript</h3>
+    <h4>Manejadores de Eventos</h4>
+    <button id="evento-semantico">Evento con manejador semantico</button>
+    <button id="evento-multiple">Evento con manejador multiple</button>
+    <button id="evento-remover">Evento Removedor</button>
+    <br /><br />
+    <h4>Flujo de Eventos</h4>
+    <section class="eventos-flujo">
+      <div class="uno">
+        1
+        <div class="dos">
+          2
+          <div class="tres">3</div>
+        </div>
+      </div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </section>
     <script src="/script.js" type="module"></script>
     <script src="/exercises.js" type="module"></script>
     <script src="/dom.js" type="module"></script>
