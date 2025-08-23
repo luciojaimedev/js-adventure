@@ -1,7 +1,3 @@
-body {
-  width: 100%;
-}
-
 .toggle-div {
   width: 50%;
   height: 400px;
@@ -33,20 +29,59 @@ body {
 }
 
 .to-do-menu {
-  height: 500px;
-  width: 300px;
-  background-color: rgb(161, 155, 155);
+  height: 470px;
+  width: 400px;
+  background-color: rgb(214, 212, 212);
   display: flex;
   justify-content: start;
   flex-direction: column;
   align-items: center;
   margin: auto;
+  border: 5px black groove;
+  border-radius: 10px;
+  gap: 15px;
+  overflow: scroll;
+  padding: 0px 30px;
 }
 
 .to-do-list-nav {
-  padding: 20px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-.to-do-main div {
-  background-color: red;
+#to-do-list-input-text {
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 5px 0px 5px 10px;
+  border: 1px black groove;
+}
+
+#to-do-list-button,
+#to-do-list-button-delete {
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+#to-do-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0px 20px;
+}
+
+.to-do-tasks {
+  width: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+  border: 1px solid black;
+  background-color: rgb(92, 94, 238);
+  border-radius: 7px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
 }
