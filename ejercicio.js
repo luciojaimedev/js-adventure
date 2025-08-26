@@ -16,10 +16,19 @@ const deleteToDoList = (array) => {
 const pushInputTextToArray = (array, input) => {
   if (input.value.trim() === "")
     return alert("No se puede agregar una tarea vacia");
+  if (input.value.length > 30) return alert("Se admiten 15 chars maximo");
 
   array.push(input.value.trim());
   input.value = "";
   console.log(array);
+};
+
+const getButtons = () => {
+  const $toDoListAllDeleteButtons = document.querySelectorAll(
+    ".task-delete-button"
+  );
+  const $toDoListAllEditButtons =
+    document.querySelectorAll(".task-edit-button");
 };
 
 const renderUI = (array) => {
@@ -27,9 +36,19 @@ const renderUI = (array) => {
   if (!array.length) return;
   array.forEach((el) => {
     const $newDiv = document.createElement("div");
-    $newDiv.innerText = el;
+    $newDiv.innerHTML = `<p>${el}</p>`;
     $newDiv.classList.add("to-do-tasks");
     $toDoListMain.appendChild($newDiv);
+
+    const $newDeleteButton = document.createElement("button");
+    $newDeleteButton.innerText = "Borrar";
+    $newDeleteButton.classList.add("task-delete-button");
+    $newDiv.appendChild($newDeleteButton);
+
+    const $newEditButton = document.createElement("button");
+    $newEditButton.innerText = "Editar";
+    $newEditButton.classList.add("task-edit-button");
+    $newDiv.appendChild($newEditButton);
   });
 };
 
@@ -43,6 +62,7 @@ $toDoListInputText.addEventListener("keypress", (e) => {
     pushInputTextToArray(toDoListTasks, $toDoListInputText);
     updateDeleteButtonUI(toDoListTasks);
     renderUI(toDoListTasks);
+    getButtons();
   }
 });
 
@@ -50,6 +70,7 @@ $toDoListButton.addEventListener("click", () => {
   pushInputTextToArray(toDoListTasks, $toDoListInputText);
   updateDeleteButtonUI(toDoListTasks);
   renderUI(toDoListTasks);
+  getButtons();
 });
 
 $toDoListButtonDelete.addEventListener("click", () => {
