@@ -10,7 +10,6 @@ const toDoListTasks = [];
 const deleteToDoList = (array) => {
   array.length = 0;
   $toDoListButtonDelete.disabled = true;
-  console.log(array);
 };
 
 const pushInputTextToArray = (array, input) => {
@@ -20,7 +19,6 @@ const pushInputTextToArray = (array, input) => {
 
   array.push(input.value.trim());
   input.value = "";
-  console.log(array);
 };
 
 const getButtons = () => {
@@ -33,8 +31,10 @@ const getButtons = () => {
 
 const renderUI = (array) => {
   $toDoListMain.innerHTML = "";
+
   if (!array.length) return;
-  array.forEach((el) => {
+
+  array.forEach((el, i) => {
     const $newDiv = document.createElement("div");
     $newDiv.innerHTML = `<p>${el}</p>`;
     $newDiv.classList.add("to-do-tasks");
@@ -43,11 +43,23 @@ const renderUI = (array) => {
     const $newDeleteButton = document.createElement("button");
     $newDeleteButton.innerText = "Borrar";
     $newDeleteButton.classList.add("task-delete-button");
+    $newDeleteButton.id = `delete-${i}`;
+    $newDeleteButton.addEventListener("click", () => {
+      array.splice(i, 1);
+      renderUI(array);
+      console.log(array);
+    });
     $newDiv.appendChild($newDeleteButton);
 
     const $newEditButton = document.createElement("button");
     $newEditButton.innerText = "Editar";
     $newEditButton.classList.add("task-edit-button");
+    $newEditButton.id = `edit-${i}`;
+    $newEditButton.addEventListener("click", () => {
+      const editPrompt = prompt("Introduzca la nueva tarea", el);
+      array.splice(i, 1, editPrompt);
+      renderUI(array);
+    });
     $newDiv.appendChild($newEditButton);
   });
 };
