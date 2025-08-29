@@ -67,6 +67,7 @@ header {
   position: fixed;
   z-index: 15;
   background-color: burlywood;
+  transition-duration: 0.3s;
 }
 
 .header-wrapper img {
@@ -90,7 +91,7 @@ header {
 
 .header-wrapper nav a {
   color: rgb(255, 255, 255);
-  background-color: burlywood;
+  transition-duration: 0.3s;
 }
 
 .hero-section {
@@ -100,7 +101,7 @@ header {
   height: 500px;
   background-image: url(/images/tokyo-image.jpg);
   background-size: cover;
-  background-position: 25% 70%;
+  background-position: 35% 70%;
   position: relative;
   background-attachment: fixed;
 }
@@ -141,23 +142,26 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition-duration: 0.3s;
 }
 
 main h2 {
   font-size: 40px;
   padding: 30px;
   color: burlywood;
+  transition-duration: 0.2s;
 }
 
 .to-do-list {
   display: flex;
   flex-direction: column;
   height: 600px;
-  width: 25%;
+  max-width: 400px;
+  width: 100%;
   align-items: center;
   border-radius: 10px;
   overflow: scroll;
-  background-color: burlywood;
+  gap: 15px;
 }
 
 .to-do-list-header {
@@ -168,9 +172,9 @@ main h2 {
   width: 100%;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  height: 50px;
-  border-bottom: solid 3px rgb(255, 255, 255);
+  height: 60px;
   background-color: burlywood;
+  transition-duration: 0.3s;
 }
 
 .to-do-list-header input {
@@ -183,7 +187,14 @@ main h2 {
   border-radius: 7px;
 }
 
+.to-do-list-main {
+  height: 100%;
+  width: 100%;
+  gap: 7px;
+  background-color: burlywood;
+  transition-duration: 0.3s;
+}
+
 .theme {
   background-color: #262626;
-  color: burlywood;
 }
