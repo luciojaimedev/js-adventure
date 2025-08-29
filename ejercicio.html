@@ -6,30 +6,35 @@
     <title>Ejercicio de Charly</title>
     <link rel="stylesheet" href="/ejercicio.css" />
   </head>
-  <body class="theme">
-    <section class="toggle-section theme"></section>
-    <div class="toggle-div theme">
-      <button class="toggle-button theme" aria-label="Turn on Dark Theme">
-        Dark Mode Theme
-      </button>
-    </div>
-
-    <section class="to-do-menu">
-      <div class="to-do-list-nav">
-        <input
-          type="text"
-          name="text"
-          id="to-do-list-input-text"
-          placeholder="Agrega una tarea"
-          value=""
+  <body>
+    <header>
+      <div class="header-wrapper" id="theme-element">
+        <img
+          src="/images/gintoki-crazy.jpg"
+          alt="Gintama character Gintoki going crazy"
+          class="header-logo"
         />
-        <button id="to-do-list-button">Agregar</button>
-        <button id="to-do-list-button-delete" disabled>Borrar Todo</button>
+        <nav>
+          <a href="#" id="theme-element">Home</a
+          ><a href="#" id="theme-element">About</a><a href="#">Portfolio</a
+          ><a href="#" id="theme-element">Services</a
+          ><a href="#" id="theme-element">Contact</a>
+        </nav>
       </div>
-      <div id="to-do-main"></div>
-    </section>
+      <section class="hero-section"><h1>DOM Practice</h1></section>
+    </header>
 
-    <br /><br /><br /><br /><br /><br /><br />
-    <script src="/ejercicio.js" type="module"></script>
+    <main id="theme-element">
+      <h2 id="theme-element">Experimental To-Do List</h2>
+      <section class="to-do-list" id="theme-element">
+        <div class="to-do-list-header" id="theme-element">
+          <input type="text" placeholder="Agrega una tarea" id="input-text" />
+          <button id="add-task-button">Agregar</button>
+          <button id="delete-all-button">Borrar Todo</button>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
   </body>
+  <script type="module" src="/ejercicio.js"></script>
 </html>
