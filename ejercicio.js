@@ -5,6 +5,8 @@ const $themeToggler = document.querySelector(".header-logo");
 const $themeElements = document.querySelectorAll(".theme-element");
 const $toDoListMain = document.querySelector(".to-do-list-main");
 
+$deleteAllBtn.disabled = true;
+
 const THEME = "theme";
 
 const toDoList = [];
@@ -15,7 +17,7 @@ const handleDarkMode = () => (isDarkMode = !isDarkMode);
 
 const addTask = (text, array) => {
   if (text.value.trim().length === 0 || text.value.trim().length > 30)
-    alert(
+    return alert(
       "Se admiten unicamente tareas entre 1 a 15 letras (contando espacios)"
     );
 
@@ -37,6 +39,11 @@ const updateThemeUI = (state, element, logo) => {
   }
 };
 
+const deleteAllUI = (array, button) => {
+  if (array.length !== 0) button.disabled = false;
+  else button.disabled = true;
+};
+
 const renderUI = (array) => {
   $toDoListMain.innerHTML = "";
 
@@ -54,19 +61,23 @@ $themeToggler.addEventListener("click", () => {
 
 $addTaskBtn.addEventListener("click", () => {
   addTask($toDoListInputText, toDoList);
+  deleteAllUI(toDoList, $deleteAllBtn);
   renderUI(toDoList);
   console.log(toDoList);
 });
 
 $deleteAllBtn.addEventListener("click", () => {
   deleteAllTasks(toDoList);
+  deleteAllUI(toDoList, $deleteAllBtn);
   renderUI(toDoList);
 });
 
 $toDoListInputText.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     addTask($toDoListInputText, toDoList);
+    deleteAllUI(toDoList, $deleteAllBtn);
     renderUI(toDoList);
+    deleteAllUI(toDoList, $deleteAllBtn);
     console.log(toDoList);
   }
 });

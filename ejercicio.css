@@ -155,12 +155,10 @@ main h2 {
 .to-do-list {
   display: flex;
   flex-direction: column;
-  height: 600px;
   max-width: 400px;
   width: 100%;
   align-items: center;
   border-radius: 10px;
-  overflow: scroll;
   gap: 15px;
 }
 
@@ -188,11 +186,53 @@ main h2 {
 }
 
 .to-do-list-main {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 390px;
   width: 100%;
-  gap: 7px;
+  gap: 10px;
   background-color: burlywood;
   transition-duration: 0.3s;
+  overflow-y: scroll;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.to-do-list-main > div:first-child {
+  margin-top: 10px;
+}
+
+.to-do-list-main > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  background-color: rgba(216, 221, 116, 0.367);
+  padding: 15px;
+  border: 1px outset black;
+  border-radius: 15px;
+  margin: 0 10px 0 10px;
+  overflow: scroll;
+  flex-shrink: 0;
+}
+
+.to-do-list-main > div:last-child {
+  margin-bottom: 10px;
+}
+
+.to-do-list-main > div:hover {
+  border: 1px inset black;
+  background-color: khaki;
+  cursor: pointer;
+}
+
+.to-do-list-main > div > p {
+  font-size: 18px;
+}
+
+.to-do-list-main > div > p::first-letter {
+  text-transform: capitalize;
 }
 
 .theme {
