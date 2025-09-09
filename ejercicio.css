@@ -203,12 +203,13 @@ main h2 {
   align-items: center;
   height: 390px;
   width: 100%;
-  gap: 10px;
+  gap: 25px;
   background-color: burlywood;
   transition-duration: 0.3s;
   overflow-y: scroll;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  position: relative;
 }
 
 .to-do-list-main > div:first-child {
@@ -225,7 +226,6 @@ main h2 {
   border: 1px outset black;
   border-radius: 15px;
   margin: 0 10px 0 10px;
-  overflow: scroll;
   flex-shrink: 0;
   position: relative;
 }
@@ -246,6 +246,38 @@ main h2 {
 
 .to-do-list-main > div > p::first-letter {
   text-transform: capitalize;
+}
+
+.to-do-list-check {
+  border-radius: 50%;
+  position: absolute;
+  left: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.check-done {
+  background-color: #56bb5a;
+}
+
+.to-do-list-edit {
+  border-radius: 10px;
+  position: absolute;
+  cursor: pointer;
+  padding: 5px;
+  right: 5px;
+  bottom: -15px;
+  background-color: rgb(248, 204, 151);
+}
+
+.to-do-list-delete {
+  border-radius: 10px;
+  position: absolute;
+  cursor: pointer;
+  padding: 5px;
+  right: 65px;
+  bottom: -15px;
+  background-color: rgb(248, 204, 151);
 }
 
 .theme {
