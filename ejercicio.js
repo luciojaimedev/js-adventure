@@ -13,10 +13,7 @@ let toDoList = JSON.parse(localStorage.getItem("tasks")) || [];
 
 let isDarkMode = false;
 
-const handleDarkMode = () => (isDarkMode = !isDarkMode);
-const handleCheck = (array) => {
-  array;
-};
+const handleMode = (state) => (state = !state);
 
 const saveTasks = () => {
   localStorage.setItem("tasks", JSON.stringify(toDoList));
@@ -60,16 +57,14 @@ const updateThemeUI = (state, element, logo) => {
   }
 };
 
-const updateCheckUI = (state, element) => {
-  element.classList.toggle(CHECK, state);
+const updateCheckUI = (state, e) => {
+  e.classList.toggle(CHECK, state);
 };
 
 const deleteAllUI = (array, button) => {
   if (array.length !== 0) button.disabled = false;
   else button.disabled = true;
 };
-
-deleteAllUI(toDoList, $deleteAllBtn);
 
 const renderUI = (array) => {
   $toDoListMain.innerHTML = "";
@@ -82,6 +77,12 @@ const renderUI = (array) => {
 
     $newDiv.innerHTML = `<p id="${toDo.id}">${toDo.name}</p>`;
     $newCheckButton.classList.add("to-do-list-check");
+    $newCheckButton.dataset.id = toDo.id;
+
+    if (toDo.isDone) {
+      $newCheckButton.classList.add(CHECK);
+    }
+
     $newEditButton.innerHTML = "Edit";
     $newEditButton.classList.add("to-do-list-edit");
     $newDeleteButton.innerHTML = "Delete";
@@ -94,21 +95,38 @@ const renderUI = (array) => {
   });
 };
 
-$themeToggler.addEventListener("click", () => {
-  handleDarkMode();
-  updateThemeUI(isDarkMode, $themeElements, $themeToggler);
-});
+document.addEventListener("click", (e) => {
+  if (e.target.matches(".header-logo")) {
+    isDarkMode = handleMode(isDarkMode);
+    updateThemeUI(isDarkMode, $themeElements, $themeToggler);
+  }
 
-$addTaskBtn.addEventListener("click", () => {
-  addTask($toDoListInputText, toDoList);
-  deleteAllUI(toDoList, $deleteAllBtn);
-  renderUI(toDoList);
-});
+  if (e.target.matches("#add-task-button")) {
+    addTask($toDoListInputText, toDoList);
+    deleteAllUI(toDoList, $deleteAllBtn);
+    renderUI(toDoList);
+  }
 
-$deleteAllBtn.addEventListener("click", () => {
-  deleteAllTasks(toDoList);
-  deleteAllUI(toDoList, $deleteAllBtn);
-  renderUI(toDoList);
+  if (e.target.matches("#delete-all-button")) {
+    deleteAllTasks(toDoList);
+    deleteAllUI(toDoList, $deleteAllBtn);
+    renderUI(toDoList);
+  }
+
+  if (e.target.matches("#filter-button")) {
+    sortTasks(toDoList);
+  }
+
+  if (e.target.matches(".to-do-list-check")) {
+    const taskId = Number(e.target.dataset.id);
+    const task = toDoList.find((t) => t.id === taskId);
+
+    if (task) {
+      handleMode(task.isDone);
+      saveTasks();
+      e.target.classList.toggle(CHECK);
+    }
+  }
 });
 
 $toDoListInputText.addEventListener("keypress", (e) => {
@@ -119,18 +137,8 @@ $toDoListInputText.addEventListener("keypress", (e) => {
   }
 });
 
-$toDoListSortBtn.addEventListener("click", () => {
-  sortTasks(toDoList);
-});
-
+deleteAllUI(toDoList, $deleteAllBtn);
 renderUI(toDoList);
-
-const $toDoListCheck = document.querySelectorAll("to-do-list-check");
-
-$toDoListCheck.addEventListener("click", () => {
-  handleCheck();
-  updateCheckUI(isDone, $toDoListCheck);
-});
 
 // const toDos = [
 //   {
@@ -156,4 +164,4 @@ $toDoListCheck.addEventListener("click", () => {
 //   });
 // };
 
-// encontrarID(toDos);
+// encontrarID(toDos)
