@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamburger Exercise</title>
+    <link rel="stylesheet" href="./dom.css" />
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <header>
+        <h1>Ejercicios del DOM</h1>
+        <button class="hamburger-button" data-menu="btn">l l l</button>
+      </header>
+    </div>
+    <section class="hamburger-drawer">
+      <nav class="hamburger-drawer__nav">
+        <a href="#section1">Reloj</a>
+        <a href="#section2">Lorem</a>
+        <a href="#section3">Lorem</a>
+        <a href="#section4">Lorem</a>
+        <a href="#section5">Lorem</a>
+      </nav>
+    </section>
+    <section id="section1">
+      <h2>Reloj Digital y Alarma Sonora</h2>
+      <div data-id="clock"></div>
+      <div>
+        <button data-id="activate-clock">Iniciar Reloj</button>
+        <button data-id="deactivate-clock">Detener Reloj</button>
+        <button data-id="activate-alarm">Iniciar Alarma</button>
+        <button data-id="deactivate-alarm">Detener Alarma</button>
+      </div>
+    </section>
+
+    <section id="section2"></section>
+
+    <section id="section3"></section>
+
+    <section id="section4"></section>
+
+    <section id="section5"></section>
+
+    <script type="module" src="./dom.js"></script>
+  </body>
+</html>
