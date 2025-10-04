@@ -1,6 +1,7 @@
 import { handleHamburger, closeHamburger } from "./ui/hamburger.js";
 import { startClock, stopClock } from "./ui/clock.js";
 import { startAlarm, stopAlarm } from "./ui/alarm.js";
+import { initBall } from "./ui/ball.js";
 
 document.addEventListener("click", (e) => {
   if (e.target.matches('[data-menu="btn"]')) {
@@ -16,4 +17,8 @@ document.addEventListener("click", (e) => {
 
   if (e.target.matches('[data-id="activate-alarm"]')) startAlarm();
   if (e.target.matches('[data-id="deactivate-alarm"]')) stopAlarm();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  initBall(10);
 });
