@@ -40,6 +40,7 @@
   height: 200px;
   padding-left: 30px;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .hamburger-drawer__nav a:hover {
@@ -51,6 +52,7 @@
 .hamburger-drawer--open {
   transform: translateX(0%);
   position: fixed;
+  z-index: 100;
 }
 
 [data-menu="btn"] {
