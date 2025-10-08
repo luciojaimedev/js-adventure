@@ -3,6 +3,8 @@ import { startClock, stopClock } from "./ui/clock.js";
 import { startAlarm, stopAlarm } from "./ui/alarm.js";
 import { initBall } from "./ui/ball.js";
 import { countdown } from "./ui/countdown.js";
+import { scrollToTop, hideScrollBtn } from "./ui/scroll-btn.js";
+import { $scrollBtn } from "./dom.js";
 
 document.addEventListener("click", (e) => {
   if (e.target.matches('[data-menu="btn"]')) {
@@ -18,6 +20,8 @@ document.addEventListener("click", (e) => {
 
   if (e.target.matches('[data-id="activate-alarm"]')) startAlarm();
   if (e.target.matches('[data-id="deactivate-alarm"]')) stopAlarm();
+
+  if (e.target.matches(".scroll-btn")) scrollToTop();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,4 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "May 03, 2026, 00:00:00",
     "Feliz cumpleaños a miiii :D"
   );
+});
+
+window.addEventListener("scroll", (e) => {
+  hideScrollBtn($scrollBtn);
 });

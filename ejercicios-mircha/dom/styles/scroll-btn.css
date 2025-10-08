@@ -1,0 +1,17 @@
+.scroll-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 1vh;
+  left: 1vh;
+  height: 50px;
+  width: 50px;
+  font-size: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}

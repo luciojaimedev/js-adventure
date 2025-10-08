@@ -15,3 +15,5 @@ export const $stopAlarmBtn = document.querySelector(
 export const $clock = document.querySelector('[data-id="clock"]');
 
 export const $audio = document.createElement("audio");
+
+export const $scrollBtn = document.querySelector(".scroll-btn");
