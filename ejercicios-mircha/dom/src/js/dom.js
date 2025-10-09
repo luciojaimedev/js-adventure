@@ -1,5 +1,7 @@
 export const $hamburgerDrawer = document.querySelector(".hamburger-drawer");
-export const $hamburgerBtn = document.querySelector('[data-menu="btn"]');
+export const $hamburgerBtn = document.querySelector(
+  '[data-menu="hamburger-btn"]'
+);
 export const $playClockBtn = document.querySelector(
   '[data-id="activate-clock"]'
 );
@@ -17,3 +19,15 @@ export const $clock = document.querySelector('[data-id="clock"]');
 export const $audio = document.createElement("audio");
 
 export const $scrollBtn = document.querySelector(".scroll-btn");
+
+export const $darkmodeBtn = document.querySelector(".darkmode-btn");
+
+export const $websiteInput = document.querySelector(
+  '[data-id="website-input"]'
+);
+
+export const $widthInput = document.querySelector('[data-id="width-input"]');
+
+export const $heightInput = document.querySelector('[data-id="height-input"]');
+
+export const $submitContainer = document.querySelector(".submit-container");

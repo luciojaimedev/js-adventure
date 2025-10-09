@@ -4,10 +4,22 @@ import { startAlarm, stopAlarm } from "./ui/alarm.js";
 import { initBall } from "./ui/ball.js";
 import { countdown } from "./ui/countdown.js";
 import { scrollToTop, hideScrollBtn } from "./ui/scroll-btn.js";
-import { $scrollBtn } from "./dom.js";
+import {
+  $scrollBtn,
+  $darkmodeBtn,
+  $websiteInput,
+  $widthInput,
+  $heightInput,
+} from "./dom.js";
+import {
+  darkmodeHandler,
+  darkmodeRenderUI,
+  isDarkmode,
+} from "./ui/darkmode.js";
+import { inputValues, testInputs } from "./ui/responsive-test.js";
 
 document.addEventListener("click", (e) => {
-  if (e.target.matches('[data-menu="btn"]')) {
+  if (e.target.matches('[data-menu="hamburger-btn"]')) {
     handleHamburger();
     return;
   }
@@ -22,9 +34,30 @@ document.addEventListener("click", (e) => {
   if (e.target.matches('[data-id="deactivate-alarm"]')) stopAlarm();
 
   if (e.target.matches(".scroll-btn")) scrollToTop();
+
+  if (e.target.matches(".darkmode-btn")) {
+    darkmodeHandler();
+    darkmodeRenderUI();
+  }
+
+  //   if (e.target.matches('[data-id="submit-btn"]')) {
+  //     console.log($websiteInput.value);
+  //     console.log($widthInput.value);
+  //     console.log($heightInput.value);
+  //   }
+  // });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  const savedMode = JSON.parse(localStorage.getItem("darkmode"));
+
+  if (!savedMode) {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+    darkmodeHandler();
+    $darkmodeBtn.textContent = isDarkmode ? "😎" : "🌚";
+  }
   initBall(10);
   countdown(
     "countdown",

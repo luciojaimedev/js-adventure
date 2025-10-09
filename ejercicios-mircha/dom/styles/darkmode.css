@@ -1,21 +1,27 @@
-.scroll-btn {
+.darkmode-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   z-index: 999;
-  bottom: 1vh;
-  left: 1vh;
+  bottom: 20px;
+  right: 25px;
   height: 50px;
   width: 50px;
   font-size: 4rem;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.4s ease;
-  overflow: hidden;
 }
 
-.hidden {
-  visibility: hidden;
-  opacity: 0;
+.dark {
+  background-color: #121212;
+  color: #f2f2f2;
+}
+
+html.dark,
+html.dark body,
+html.dark [data-id="ball"] {
+  background-color: #121212;
+  color: #f2f2f2;
 }

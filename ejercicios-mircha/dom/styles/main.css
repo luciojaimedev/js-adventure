@@ -2,9 +2,13 @@
 @import "./clock.css";
 @import "./field-ball.css";
 @import "./scroll-btn.css";
+@import "./darkmode.css";
 
+html,
 body {
-  background-color: rgba(0, 0, 0, 0.877);
+  background-color: #ffffff;
+  color: #222222;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .header-wrapper {
@@ -19,7 +23,6 @@ header {
   width: 100%;
   max-width: 1920px;
   height: 15dvh;
-  background-color: rgb(193, 189, 170);
   z-index: 10;
   position: relative;
 }
@@ -31,7 +34,6 @@ header h1 {
 }
 
 h2 {
-  color: white;
   font-size: 40px;
 }
 
