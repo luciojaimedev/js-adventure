@@ -10,7 +10,9 @@
     <div class="header-wrapper">
       <header>
         <h1>Ejercicios del DOM</h1>
-        <button class="hamburger-button" data-menu="btn">l l l</button>
+        <button class="hamburger-button" data-menu="hamburger-btn">
+          l l l
+        </button>
       </header>
     </div>
     <section class="hamburger-drawer">
@@ -18,7 +20,7 @@
         <a href="#section1">Reloj</a>
         <a href="#section2">Pelota</a>
         <a href="#section3">Cuenta Regresiva</a>
-        <a href="#section4">Lorem</a>
+        <a href="#section4">Responsive Test</a>
         <a href="#section5">Lorem</a>
       </nav>
     </section>
@@ -45,10 +47,20 @@
       <div id="countdown"></div>
     </section>
 
-    <section id="section4"></section>
+    <section id="section4">
+      <h2>Responsive Test</h2>
+      <div class="submit-container">
+        <input data-id="website-input" type="text" placeholder="Website" />
+        <input data-id="width-input" type="number" placeholder="Width" />
+        <input data-id="height-input" type="number" placeholder="Height" />
+        <button data-id="submit-btn">Aceptar</button>
+      </div>
+    </section>
 
     <section id="section5"></section>
 
+    <button class="scroll-btn hidden">↑</button>
+    <button class="darkmode-btn">🌚</button>
     <script type="module" src="./src/js/main.js"></script>
   </body>
 </html>
