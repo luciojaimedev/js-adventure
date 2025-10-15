@@ -49,12 +49,30 @@
 
     <section id="section4">
       <h2>Responsive Test</h2>
-      <div class="submit-container">
-        <input data-id="website-input" type="text" placeholder="Website" />
-        <input data-id="width-input" type="number" placeholder="Width" />
-        <input data-id="height-input" type="number" placeholder="Height" />
-        <button data-id="submit-btn">Aceptar</button>
-      </div>
+      <form class="responsive-test-form">
+        <input
+          data-id="website-input"
+          name="website"
+          type="url"
+          placeholder="Website"
+          required
+        />
+        <input
+          data-id="width-input"
+          name="width"
+          type="text"
+          placeholder="Width"
+          required
+        />
+        <input
+          data-id="height-input"
+          name="height"
+          type="tel"
+          placeholder="Height"
+          required
+        />
+        <input name="accept" type="submit" value="Aceptar" required />
+      </form>
     </section>
 
     <section id="section5"></section>

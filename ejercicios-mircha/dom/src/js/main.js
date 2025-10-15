@@ -4,19 +4,12 @@ import { startAlarm, stopAlarm } from "./ui/alarm.js";
 import { initBall } from "./ui/ball.js";
 import { countdown } from "./ui/countdown.js";
 import { scrollToTop, hideScrollBtn } from "./ui/scroll-btn.js";
-import {
-  $scrollBtn,
-  $darkmodeBtn,
-  $websiteInput,
-  $widthInput,
-  $heightInput,
-} from "./dom.js";
+import { $scrollBtn, $darkmodeBtn, $form } from "./dom.js";
 import {
   darkmodeHandler,
   darkmodeRenderUI,
   isDarkmode,
 } from "./ui/darkmode.js";
-import { inputValues, testInputs } from "./ui/responsive-test.js";
 
 document.addEventListener("click", (e) => {
   if (e.target.matches('[data-menu="hamburger-btn"]')) {
@@ -39,13 +32,17 @@ document.addEventListener("click", (e) => {
     darkmodeHandler();
     darkmodeRenderUI();
   }
+});
 
-  //   if (e.target.matches('[data-id="submit-btn"]')) {
-  //     console.log($websiteInput.value);
-  //     console.log($widthInput.value);
-  //     console.log($heightInput.value);
-  //   }
-  // });
+document.addEventListener("submit", (e) => {
+  if (e.target.matches(".responsive-test-form")) {
+    e.preventDefault();
+    responsiveWindow = window.open(
+      $form.website.value,
+      "responsive-test",
+      `innerWidth=${$form.width.value}, innerHeight=${$form.height.value}`
+    );
+  }
 });
 
 document.addEventListener("DOMContentLoaded", () => {

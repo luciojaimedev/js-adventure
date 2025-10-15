@@ -22,12 +22,4 @@ export const $scrollBtn = document.querySelector(".scroll-btn");
 
 export const $darkmodeBtn = document.querySelector(".darkmode-btn");
 
-export const $websiteInput = document.querySelector(
-  '[data-id="website-input"]'
-);
-
-export const $widthInput = document.querySelector('[data-id="width-input"]');
-
-export const $heightInput = document.querySelector('[data-id="height-input"]');
-
-export const $submitContainer = document.querySelector(".submit-container");
+export const $form = document.querySelector(".responsive-test-form");
