@@ -21,7 +21,7 @@
         <a href="#section2">Pelota</a>
         <a href="#section3">Cuenta Regresiva</a>
         <a href="#section4">Responsive Test</a>
-        <a href="#section5">Lorem</a>
+        <a href="#section5">Geo Localizacion</a>
       </nav>
     </section>
     <section id="section1">
@@ -49,15 +49,36 @@
 
     <section id="section4">
       <h2>Responsive Test</h2>
-      <div class="submit-container">
-        <input data-id="website-input" type="text" placeholder="Website" />
-        <input data-id="width-input" type="number" placeholder="Width" />
-        <input data-id="height-input" type="number" placeholder="Height" />
-        <button data-id="submit-btn">Aceptar</button>
-      </div>
+      <form class="responsive-test-form">
+        <input
+          data-id="website-input"
+          name="website"
+          type="url"
+          placeholder="Website"
+          required
+        />
+        <input
+          data-id="width-input"
+          name="width"
+          type="text"
+          placeholder="Width"
+          required
+        />
+        <input
+          data-id="height-input"
+          name="height"
+          type="tel"
+          placeholder="Height"
+          required
+        />
+        <input name="accept" type="submit" value="Aceptar" required />
+      </form>
     </section>
 
-    <section id="section5"></section>
+    <section id="section5">
+      <h2>Geo Localizacion</h2>
+      <div class="geo-container" data-id="current-position"></div>
+    </section>
 
     <button class="scroll-btn hidden">↑</button>
     <button class="darkmode-btn">🌚</button>

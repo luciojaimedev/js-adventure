@@ -9,10 +9,10 @@ export function initBall(step = 10) {
   ball.style.top = `${y}px`;
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowUp") y -= step;
-    if (e.key === "ArrowDown") y += step;
-    if (e.key === "ArrowLeft") x -= step;
-    if (e.key === "ArrowRight") x += step;
+    if (e.key === "ArrowUp" || e.key === "w") y -= step;
+    if (e.key === "ArrowDown" || e.key === "s") y += step;
+    if (e.key === "ArrowLeft" || e.key === "a") x -= step;
+    if (e.key === "ArrowRight" || e.key === "d") x += step;
 
     const maxX = container.offsetWidth - ball.offsetWidth;
     const maxY = container.offsetHeight - ball.offsetHeight;
@@ -22,5 +22,13 @@ export function initBall(step = 10) {
 
     ball.style.left = `${x}px`;
     ball.style.top = `${y}px`;
+
+    setTimeout(() => {
+      ball.classList.add("scale-ball");
+    }, 100);
+
+    setTimeout(() => {
+      ball.classList.remove("scale-ball");
+    }, 180);
   });
 }
