@@ -23,3 +23,7 @@ export const $scrollBtn = document.querySelector(".scroll-btn");
 export const $darkmodeBtn = document.querySelector(".darkmode-btn");
 
 export const $form = document.querySelector(".responsive-test-form");
+
+export const $currentPosition = document.querySelector(
+  '[data-id="current-position"]'
+);

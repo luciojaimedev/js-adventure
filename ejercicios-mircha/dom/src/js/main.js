@@ -10,6 +10,7 @@ import {
   darkmodeRenderUI,
   isDarkmode,
 } from "./ui/darkmode.js";
+import { geoLocalization } from "./ui/geolocalization.js";
 
 document.addEventListener("click", (e) => {
   if (e.target.matches('[data-menu="hamburger-btn"]')) {
@@ -55,12 +56,15 @@ document.addEventListener("DOMContentLoaded", () => {
     darkmodeHandler();
     $darkmodeBtn.textContent = isDarkmode ? "😎" : "🌚";
   }
-  initBall(10);
+
+  initBall(20);
+
   countdown(
     "countdown",
     "May 03, 2026, 00:00:00",
     "Feliz cumpleaños a miiii :D"
   );
+  geoLocalization();
 });
 
 window.addEventListener("scroll", (e) => {
