@@ -27,3 +27,13 @@ export const $form = document.querySelector(".responsive-test-form");
 export const $currentPosition = document.querySelector(
   '[data-id="current-position"]'
 );
+
+export const $lotteryBox = document.querySelector('[data-id="lottery-box"]');
+
+export const $lotteryMsg = document.querySelector(".lottery-msg");
+
+export const $lotteryButton = document.querySelector(".lottery-button");
+
+export const $deleteLotteryButton = document.querySelector(
+  ".delete-lottery-button"
+);
