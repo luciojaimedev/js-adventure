@@ -11,6 +11,8 @@ import {
   isDarkmode,
 } from "./ui/darkmode.js";
 import { geoLocalization } from "./ui/geolocalization.js";
+import { cardFilter } from "./ui/cards.js";
+import { sortOutLottery, lotteryArr, clearLotteryParticipants } from "./ui/lottery.js";
 
 document.addEventListener("click", (e) => {
   if (e.target.matches('[data-menu="hamburger-btn"]')) {
@@ -65,6 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "Feliz cumpleaños a miiii :D"
   );
   geoLocalization();
+  cardFilter(".card-filter", ".card");
+  sortOutLottery(lotteryArr);
+  clearLotteryParticipants(lotteryArr);
 });
 
 window.addEventListener("scroll", (e) => {

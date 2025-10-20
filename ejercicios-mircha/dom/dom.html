@@ -15,70 +15,166 @@
         </button>
       </header>
     </div>
-    <section class="hamburger-drawer">
-      <nav class="hamburger-drawer__nav">
-        <a href="#section1">Reloj</a>
-        <a href="#section2">Pelota</a>
-        <a href="#section3">Cuenta Regresiva</a>
-        <a href="#section4">Responsive Test</a>
-        <a href="#section5">Geo Localizacion</a>
-      </nav>
-    </section>
-    <section id="section1">
-      <h2>Reloj Digital y Alarma Sonora</h2>
-      <div data-id="clock"></div>
-      <div>
-        <button data-id="activate-clock">Iniciar Reloj</button>
-        <button data-id="deactivate-clock">Detener Reloj</button>
-        <button data-id="activate-alarm">Iniciar Alarma</button>
-        <button data-id="deactivate-alarm">Detener Alarma</button>
-      </div>
-    </section>
+    <div class="sections-wrapper">
+      <section class="hamburger-drawer">
+        <nav class="hamburger-drawer__nav">
+          <a href="#section1">Reloj</a>
+          <a href="#section2">Pelota</a>
+          <a href="#section3">Cuenta Regresiva</a>
+          <a href="#section4">Responsive Test</a>
+          <a href="#section5">Geo Localizacion</a>
+          <a href="#section6">Filtros de Busqueda</a>
+          <a href="#section7">Sorteo Digital</a>
+          <a href="#section8">Carrusel de Imagenes</a>
+        </nav>
+      </section>
+      <section id="section1">
+        <h2>Reloj Digital y Alarma Sonora</h2>
+        <div data-id="clock"></div>
+        <div>
+          <button data-id="activate-clock">Iniciar Reloj</button>
+          <button data-id="deactivate-clock">Detener Reloj</button>
+          <button data-id="activate-alarm">Iniciar Alarma</button>
+          <button data-id="deactivate-alarm">Detener Alarma</button>
+        </div>
+      </section>
 
-    <section id="section2">
-      <h2>Eventos del Teclado</h2>
-      <div data-id="field">
-        <div data-id="ball"></div>
-      </div>
-    </section>
+      <section id="section2">
+        <h2>Eventos del Teclado</h2>
+        <div data-id="field">
+          <div data-id="ball"></div>
+        </div>
+      </section>
 
-    <section id="section3">
-      <h2>Cuenta Regresiva</h2>
-      <div id="countdown"></div>
-    </section>
+      <section id="section3">
+        <h2>Cuenta Regresiva</h2>
+        <div id="countdown"></div>
+      </section>
 
-    <section id="section4">
-      <h2>Responsive Test</h2>
-      <form class="responsive-test-form">
-        <input
-          data-id="website-input"
-          name="website"
-          type="url"
-          placeholder="Website"
-          required
-        />
-        <input
-          data-id="width-input"
-          name="width"
-          type="text"
-          placeholder="Width"
-          required
-        />
-        <input
-          data-id="height-input"
-          name="height"
-          type="tel"
-          placeholder="Height"
-          required
-        />
-        <input name="accept" type="submit" value="Aceptar" required />
-      </form>
-    </section>
+      <section id="section4">
+        <h2>Responsive Test</h2>
+        <form class="responsive-test-form">
+          <input
+            data-id="website-input"
+            name="website"
+            type="url"
+            placeholder="Website"
+            required
+          />
+          <input
+            data-id="width-input"
+            name="width"
+            type="text"
+            placeholder="Width"
+            required
+          />
+          <input
+            data-id="height-input"
+            name="height"
+            type="tel"
+            placeholder="Height"
+            required
+          />
+          <input name="accept" type="submit" value="Aceptar" required />
+        </form>
+      </section>
 
-    <section id="section5">
-      <h2>Geo Localizacion</h2>
-      <div class="geo-container" data-id="current-position"></div>
-    </section>
+      <section id="section5">
+        <h2>Geo Localizacion</h2>
+        <div class="geo-container" data-id="current-position"></div>
+      </section>
+
+      <section id="section6">
+        <h2>Filtros de Busqueda</h2>
+        <input type="search" placeholder="Buscar..." class="card-filter" />
+        <article class="cards">
+          <figure class="card">
+            <img src="/images/luffy.png" alt="Monkey D. Luffy" />
+            <figcaption>Monkey D. Luffy</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="/images/naruto.jpg" alt="Naruto Uzumaki" />
+            <figcaption>Naruto Uzumaki</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="/images/thorfinn.jpg" alt="Thorfinn Karlsefni" />
+            <figcaption>Thorfinn Karlsefni</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="/images/gintoki.jpg" alt="Sakata Gintoki" />
+            <figcaption>Sakata Gintoki</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="/images/joseph-joestar.jpg" alt="Joseph Joestar" />
+            <figcaption>Joseph Joestar</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="/images/edward-elric.jpg" alt="Edward Elric" />
+            <figcaption>Edward Elric</figcaption>
+          </figure>
+        </article>
+      </section>
+
+      <section id="section7">
+        <h2>Sorteo Digital</h2>
+        <h3>Introduce debajo a todos los participantes del sorteo</h3>
+        <span>&#x27aa;</span>
+        <div>
+          <textarea name="lottery-box" data-id="lottery-box"></textarea>
+        </div>
+        <div class="lottery-msg"></div>
+        <div>
+          <button class="lottery-button">Sortear</button>
+          <button class="delete-lottery-button">Borrar todo</button>
+        </div>
+      </section>
+
+      <section id="section8">
+        <h2>Carrusel de Imagenes</h2>
+        <div class="carousel-container">
+          <img src="/images/landscape-1.jpg" alt="" />
+          <img src="/images/landscape-2.jpeg" alt="" />
+          <img src="/images/landscape-3.png" alt="" />
+          <img src="/images/landscape-4.jpg" alt="" />
+          <img src="/images/landscape-5.jpg" alt="" />
+
+          <button class="prev">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="128"
+              height="128"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 15v3.586a1 1 0 0 1-1.707.707l-6.586-6.586a1 1 0 0 1 0-1.414l6.586-6.586A1 1 0 0 1 12 5.414V9h3v6zm9 0V9m-3 6V9"
+              />
+            </svg>
+          </button>
+          <button class="next">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="128"
+              height="128"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9V5.414a1 1 0 0 1 1.707-.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586A1 1 0 0 1 12 18.586V15H9V9zM3 9v6m3-6v6"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+    </div>
 
     <button class="scroll-btn hidden">↑</button>
     <button class="darkmode-btn">🌚</button>

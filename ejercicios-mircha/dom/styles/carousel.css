@@ -1,0 +1,54 @@
+.carousel-container {
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: red;
+  position: relative;
+}
+
+.carousel-container img {
+  height: 500px;
+}
+
+.prev,
+.next {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.412);
+  border-radius: 20px;
+  padding: 10px;
+  z-index: 99;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.594);
+  transition: 0.4s all ease;
+}
+.prev {
+  left: 10px;
+  bottom: 215px;
+}
+
+.prev svg {
+  width: 30px;
+  height: 30px;
+}
+
+.prev:hover {
+  transform: scale(1.2);
+}
+
+.next {
+  right: 10px;
+  bottom: 215px;
+}
+
+.next svg {
+  width: 30px;
+  height: 30px;
+}
+
+.next:hover {
+  transform: scale(1.2);
+}
