@@ -21,7 +21,16 @@
 
 html.dark,
 html.dark body,
-html.dark [data-id="ball"] {
+html.dark [data-id="ball"],
+html.dark .hamburger-drawer a {
   background-color: #121212;
   color: #f2f2f2;
+}
+
+html.dark .hamburger-drawer__nav {
+  background-color: rgba(66, 26, 26, 0.5);
+}
+
+html.dark [data-id="field"] {
+  background-color: rgb(66, 26, 26);
 }

@@ -9,8 +9,8 @@
 
 html,
 body {
-  background-color: #cba1a1;
-  color: #222222;
+  background-color: #eff0f3;
+  color: #0d0d0d;
   transition: background-color 0.3s, color 0.3s;
 }
 

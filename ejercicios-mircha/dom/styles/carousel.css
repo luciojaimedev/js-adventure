@@ -1,16 +1,38 @@
-.carousel-container {
-  max-width: 700px;
-  width: 100%;
+.carousel-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  background-color: red;
+  width: 60%;
   position: relative;
 }
 
-.carousel-container img {
-  height: 500px;
+.carousel-container {
+  width: 100%;
+  position: relative;
+  background-color: red;
+  height: 400px;
+}
+
+.carousel {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  user-select: none;
+}
+
+.carousel.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.carousel img {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
 }
 
 .prev,
@@ -26,29 +48,39 @@
   transition: 0.4s all ease;
 }
 .prev {
-  left: 10px;
-  bottom: 215px;
+  left: -30px;
+  top: 50%;
 }
 
 .prev svg {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .prev:hover {
   transform: scale(1.2);
+  background-color: black;
+}
+
+.prev:active {
+  transform: scale(1);
 }
 
 .next {
-  right: 10px;
-  bottom: 215px;
+  top: 50%;
+  right: -30px;
 }
 
 .next svg {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .next:hover {
   transform: scale(1.2);
+  background-color: black;
+}
+
+.next:active {
+  transform: scale(1);
 }
