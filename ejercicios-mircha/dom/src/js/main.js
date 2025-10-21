@@ -34,6 +34,14 @@ document.addEventListener("click", (e) => {
   if (e.target.matches(".darkmode-btn")) {
     darkmodeHandler();
     darkmodeRenderUI();
+
+  if (e.target.matches(".prev")) {
+
+  }
+
+  if (e.target.matches(".next")) {
+    
+  }
   }
 });
 
@@ -75,3 +83,4 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("scroll", (e) => {
   hideScrollBtn($scrollBtn);
 });
+
