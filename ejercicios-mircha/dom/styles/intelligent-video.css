@@ -1,0 +1,10 @@
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container video {
+  max-width: 60%;
+  width: 100%;
+}

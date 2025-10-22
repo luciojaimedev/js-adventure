@@ -18,17 +18,18 @@
     <div class="sections-wrapper">
       <section class="hamburger-drawer">
         <nav class="hamburger-drawer__nav">
-          <a href="#section1">Reloj</a>
-          <a href="#section2">Pelota</a>
-          <a href="#section3">Cuenta Regresiva</a>
-          <a href="#section4">Responsive Test</a>
-          <a href="#section5">Geo Localizacion</a>
-          <a href="#section6">Filtros de Busqueda</a>
-          <a href="#section7">Sorteo Digital</a>
-          <a href="#section8">Carrusel de Imagenes</a>
+          <a href="#section1" data-scroll-spy>Reloj</a>
+          <a href="#section2" data-scroll-spy>Pelota</a>
+          <a href="#section3" data-scroll-spy>Cuenta Regresiva</a>
+          <a href="#section4" data-scroll-spy>Responsive Test</a>
+          <a href="#section5" data-scroll-spy>Geo Localizacion</a>
+          <a href="#section6" data-scroll-spy>Filtros de Busqueda</a>
+          <a href="#section7" data-scroll-spy>Sorteo Digital</a>
+          <a href="#section8" data-scroll-spy>Carrusel de Imagenes</a>
+          <a href="#section9" data-scroll-spy>Video Inteligente</a>
         </nav>
       </section>
-      <section id="section1">
+      <section id="section1" data-scroll-spy>
         <h2>Reloj Digital y Alarma Sonora</h2>
         <div data-id="clock"></div>
         <div>
@@ -39,19 +40,19 @@
         </div>
       </section>
 
-      <section id="section2">
+      <section id="section2" data-scroll-spy>
         <h2>Eventos del Teclado</h2>
         <div data-id="field">
           <div data-id="ball"></div>
         </div>
       </section>
 
-      <section id="section3">
+      <section id="section3" data-scroll-spy>
         <h2>Cuenta Regresiva</h2>
         <div id="countdown"></div>
       </section>
 
-      <section id="section4">
+      <section id="section4" data-scroll-spy>
         <h2>Responsive Test</h2>
         <form class="responsive-test-form">
           <input
@@ -79,12 +80,12 @@
         </form>
       </section>
 
-      <section id="section5">
+      <section id="section5" data-scroll-spy>
         <h2>Geo Localizacion</h2>
         <div class="geo-container" data-id="current-position"></div>
       </section>
 
-      <section id="section6">
+      <section id="section6" data-scroll-spy>
         <h2>Filtros de Busqueda</h2>
         <input type="search" placeholder="Buscar..." class="card-filter" />
         <article class="cards">
@@ -115,7 +116,7 @@
         </article>
       </section>
 
-      <section id="section7">
+      <section id="section7" data-scroll-spy>
         <h2>Sorteo Digital</h2>
         <h3>Introduce debajo a todos los participantes del sorteo</h3>
         <span>&#x27aa;</span>
@@ -129,14 +130,14 @@
         </div>
       </section>
 
-      <section id="section8">
+      <section id="section8" data-scroll-spy>
         <h2>Carrusel de Imagenes</h2>
         <div class="carousel-wrapper">
           <div class="carousel-container">
-            <div class="carousel">
+            <div class="carousel active">
               <img src="/images/landscape-1.jpg" alt="" />
             </div>
-            <div class="carousel active">
+            <div class="carousel">
               <img src="/images/landscape-2.jpeg" alt="" />
             </div>
             <div class="carousel">
@@ -185,6 +186,21 @@
             </button>
           </div>
         </div>
+      </section>
+
+      <section id="section9" data-scroll-spy>
+        <h2>Video Inteligente</h2>
+        <div class="video-container">
+          <video
+            src="./src/assets/videos/Tales of Berseria - Opening HD 1080p 60fps PC - Samurai Rai (1080p, h264).mp4"
+            controls
+            data-int-video
+          ></video>
+        </div>
+      </section>
+      <section id="section10" data-scroll-spy>
+        <h2>Fin</h2>
+        <div class=""></div>
       </section>
     </div>
 

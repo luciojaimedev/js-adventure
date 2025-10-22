@@ -37,3 +37,9 @@ export const $lotteryButton = document.querySelector(".lottery-button");
 export const $deleteLotteryButton = document.querySelector(
   ".delete-lottery-button"
 );
+
+export const $prevBtn = document.querySelector(".prev");
+
+export const $nextBtn = document.querySelector(".next");
+
+export const $carousel = document.querySelectorAll(".carousel");
