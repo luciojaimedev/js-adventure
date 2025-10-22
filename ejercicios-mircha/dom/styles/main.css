@@ -6,6 +6,8 @@
 @import "./cards.css";
 @import "./lottery.css";
 @import "./carousel.css";
+@import "./scrollspy.css";
+@import "./intelligent-video.css";
 
 html,
 body {
@@ -57,7 +59,8 @@ h2 {
 #section5,
 #section6,
 #section7,
-#section8 {
+#section8,
+#section9 {
   display: flex;
   justify-content: center;
   flex-direction: column;

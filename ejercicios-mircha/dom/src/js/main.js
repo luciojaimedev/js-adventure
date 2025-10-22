@@ -12,7 +12,14 @@ import {
 } from "./ui/darkmode.js";
 import { geoLocalization } from "./ui/geolocalization.js";
 import { cardFilter } from "./ui/cards.js";
-import { sortOutLottery, lotteryArr, clearLotteryParticipants } from "./ui/lottery.js";
+import {
+  sortOutLottery,
+  lotteryArr,
+  clearLotteryParticipants,
+} from "./ui/lottery.js";
+import { slider } from "./ui/carousel.js";
+import { scrollSpy } from "./ui/scrollspy.js";
+import { intVideo } from "./ui/intelligent-video.js";
 
 document.addEventListener("click", (e) => {
   if (e.target.matches('[data-menu="hamburger-btn"]')) {
@@ -35,13 +42,11 @@ document.addEventListener("click", (e) => {
     darkmodeHandler();
     darkmodeRenderUI();
 
-  if (e.target.matches(".prev")) {
+    if (e.target.matches(".prev")) {
+    }
 
-  }
-
-  if (e.target.matches(".next")) {
-    
-  }
+    if (e.target.matches(".next")) {
+    }
   }
 });
 
@@ -78,9 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
   cardFilter(".card-filter", ".card");
   sortOutLottery(lotteryArr);
   clearLotteryParticipants(lotteryArr);
+  slider();
+  scrollSpy();
+  intVideo();
 });
 
 window.addEventListener("scroll", (e) => {
   hideScrollBtn($scrollBtn);
 });
-

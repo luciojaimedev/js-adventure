@@ -1,0 +1,5 @@
+a.scroll-active {
+  background-color: rgb(134, 77, 77) !important;
+  color: white !important;
+  transition: background-color 0.3s ease;
+}

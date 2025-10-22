@@ -27,6 +27,7 @@
   border-bottom-right-radius: 35px;
   border-top-right-radius: 35px;
   height: 100vh;
+  overflow-y: auto;
 }
 
 .hamburger-drawer__nav {
