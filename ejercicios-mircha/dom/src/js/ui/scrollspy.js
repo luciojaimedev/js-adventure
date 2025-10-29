@@ -6,6 +6,10 @@ export const scrollSpy = () => {
   const callBack = (entries) => {
     entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
+      const $link = document.querySelector(`a[data-scroll-spy][href="#${id}"]`);
+
+      if (!$link) return;
+
       if (entry.isIntersecting) {
         document
           .querySelector(`a[data-scroll-spy][href="#${id}"]`)
