@@ -8,6 +8,7 @@
 @import "./carousel.css";
 @import "./scrollspy.css";
 @import "./intelligent-video.css";
+@import "./speech.css";
 
 html,
 body {
@@ -60,7 +61,9 @@ h2 {
 #section6,
 #section7,
 #section8,
-#section9 {
+#section9,
+#section10,
+#section11 {
   display: flex;
   justify-content: center;
   flex-direction: column;

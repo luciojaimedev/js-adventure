@@ -20,6 +20,7 @@ import {
 import { slider } from "./ui/carousel.js";
 import { scrollSpy } from "./ui/scrollspy.js";
 import { intVideo } from "./ui/intelligent-video.js";
+import { speechReader } from "./ui/speech.js";
 
 document.addEventListener("click", (e) => {
   if (e.target.matches('[data-menu="hamburger-btn"]')) {
@@ -91,3 +92,5 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("scroll", (e) => {
   hideScrollBtn($scrollBtn);
 });
+
+speechReader();

@@ -1,0 +1,19 @@
+.speech-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 25px;
+}
+
+.speech-container select {
+  text-align: center;
+}
+
+.speech-container textarea {
+  height: 250px;
+}
+
+.speech-container button {
+  width: 200px;
+  align-self: center;
+}

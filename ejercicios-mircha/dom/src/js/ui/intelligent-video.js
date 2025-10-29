@@ -4,11 +4,7 @@ export const intVideo = () => {
   $video.volume = 0.2;
 
   document.addEventListener("visibilitychange", () => {
-    if (!document.hidden) {
-      $video.play();
-    } else {
-      $video.pause();
-    }
+    if (document.hidden) $video.pause();
   });
 
   const callBack = (entries) => {
