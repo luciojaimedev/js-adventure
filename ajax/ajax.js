@@ -79,3 +79,48 @@
   };
   getData();
 })();
+
+(() => {
+  const $axios = document.getElementById("axios");
+  const $fragment = document.createDocumentFragment();
+
+  axios
+    .get("https://jsonplaceholder.typicode.com/users")
+    .then((res) => {
+      let json = res.data;
+      json.forEach((el) => {
+        const $li = document.createElement("li");
+        $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
+        $fragment.appendChild($li);
+      });
+      $axios.appendChild($fragment);
+    })
+    .catch((err) => {
+      let message = err.response.statusText || "Hubo un error";
+      $axios.innerHTML = `Error ${err.response.status}: ${message}`;
+    });
+})();
+
+(() => {
+  const $axiosAsync = document.getElementById("axios-async");
+  const $fragment = document.createDocumentFragment();
+
+  const getData = async () => {
+    try {
+      let res = await axios.get("https://jsonplaceholder.typicode.com/users");
+      let json = res.data;
+
+      json.forEach((el) => {
+        const $li = document.createElement("li");
+        $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
+        $fragment.appendChild($li);
+      });
+      $axiosAsync.appendChild($fragment);
+    } catch (err) {
+      let message = err.response.statusText || "Hubo un error";
+      $axiosAsync.innerHTML = `Error ${err.response.status}: ${message}`;
+    }
+  };
+
+  getData();
+})();
