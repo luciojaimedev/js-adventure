@@ -28,9 +28,9 @@
   ],
   "marines": [
     {
-      "id": "1",
       "name": "Garp",
-      "rank": "Vice Admiral"
+      "rank": "Vice Admiral",
+      "id": "1"
     },
     {
       "id": "2",
@@ -51,11 +51,6 @@
       "id": "5",
       "name": "Kizaru",
       "rank": "Admiral"
-    },
-    {
-      "name": "Rob Lucci",
-      "rank": "CP0",
-      "id": "6"
     }
   ]
 }
