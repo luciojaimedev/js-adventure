@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX</title>
+    <link rel="stylesheet" href="/ajax/ajax.css" />
+  </head>
+  <body>
+    <h1>CRUD API REST AXIOS</h1>
+    <section id="crud">
+      <article>
+        <h2 class="crud-title">Agregar Piratas</h2>
+        <form class="crud-form">
+          <input type="text" name="name" placeholder="Nombre" required />
+          <br />
+          <input type="text" name="crew" placeholder="Tripulacion" required />
+          <br />
+          <input type="submit" value="Enviar" />
+          <input type="hidden" name="id" />
+        </form>
+      </article>
+      <article>
+        <h2>Ver Marines</h2>
+        <table class="crud-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Rango</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </article>
+    </section>
+    <template id="crud-template">
+      <tr>
+        <td class="name"></td>
+        <td class="rank"></td>
+        <td>
+          <button class="edit">Editar</button>
+          <button class="delete">Eliminar</button>
+        </td>
+      </tr></template
+    >
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module" src="/ajax/crud_axios.js"></script>
+
+  </body>
+</html>
