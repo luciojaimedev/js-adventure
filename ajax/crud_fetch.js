@@ -56,7 +56,6 @@ document.addEventListener("submit", async (e) => {
           }),
         };
         let res = await fetch("http://localhost:5555/pirates", options);
-        let json = await res.json();
 
         if (!res.ok) throw { status: res.status, statusText: res.statusText };
 
