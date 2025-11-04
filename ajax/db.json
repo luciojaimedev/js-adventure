@@ -1,11 +1,6 @@
 {
   "pirates": [
     {
-      "id": "1",
-      "name": "Sanji",
-      "crew": "Mugiwaras"
-    },
-    {
       "id": "2",
       "name": "Trafalgar Law",
       "crew": "Heart Pirates"
@@ -16,14 +11,29 @@
       "crew": "Cross Guild"
     },
     {
-      "id": "4",
-      "name": "Charlotte Katakuri",
-      "crew": "Big Mom Pirates"
-    },
-    {
       "id": "5",
       "name": "Marco",
       "crew": "Whitebeard Pirates"
+    },
+    {
+      "name": "Shanks",
+      "crew": "Red Hair Pirates",
+      "id": "b8f5"
+    },
+    {
+      "name": "Katakuri",
+      "crew": "Big Mom Pirates",
+      "id": "ad84"
+    },
+    {
+      "id": "1829",
+      "name": "Roronoa Zoro",
+      "crew": "Mugiwaras"
+    },
+    {
+      "id": "70e8",
+      "name": "Sanji",
+      "crew": "Mugiwaras"
     }
   ],
   "marines": [
@@ -43,9 +53,9 @@
       "rank": "Admiral"
     },
     {
-      "id": "4",
-      "name": "Doll",
-      "rank": "Base Commander"
+      "name": "Katakuri",
+      "crew": "Big Mom Pirates",
+      "id": "4"
     },
     {
       "id": "5",

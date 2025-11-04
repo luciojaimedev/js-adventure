@@ -69,7 +69,6 @@ document.addEventListener("submit", (e) => {
         url: "http://localhost:5555/marines",
         method: "POST",
         success: () => {
-          alert("Marine agregado correctamente ✅");
           $form.reset();
           $form.id.value = "";
           $title.textContent = "Agregar Marine";
@@ -88,7 +87,6 @@ document.addEventListener("submit", (e) => {
         url: `http://localhost:5555/marines/${e.target.id.value}`,
         method: "PUT",
         success: () => {
-          alert("Marine actualizado correctamente");
           $form.reset();
           $form.id.value = "";
           $title.textContent = "Agregar Marine";
@@ -123,7 +121,6 @@ document.addEventListener("click", (e) => {
         url: `http://localhost:5555/marines/${e.target.dataset.id}`,
         method: "DELETE",
         success: () => {
-          alert(`Marine ${e.target.dataset.name} eliminado correctamente`);
           location.reload();
         },
         error: (err) =>

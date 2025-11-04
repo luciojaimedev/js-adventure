@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/ajax/ajax.css" />
   </head>
   <body>
-    <h1>CRUD API REST FETCH</h1>
+    <h1>CRUD API FETCH</h1>
     <section id="crud">
       <article>
         <h2 class="crud-title">Agregar Piratas</h2>
@@ -21,12 +21,12 @@
         </form>
       </article>
       <article>
-        <h2>Ver Marines</h2>
+        <h2>Ver Piratas</h2>
         <table class="crud-table">
           <thead>
             <tr>
               <th>Nombre</th>
-              <th>Rango</th>
+              <th>Tripulacion</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -37,14 +37,13 @@
     <template id="crud-template">
       <tr>
         <td class="name"></td>
-        <td class="rank"></td>
+        <td class="crew"></td>
         <td>
           <button class="edit">Editar</button>
           <button class="delete">Eliminar</button>
         </td>
       </tr></template
     >
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script type="module" src="/ajax/crud_fetch.js"></script>
   </body>
 </html>
