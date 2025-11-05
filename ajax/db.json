@@ -53,14 +53,24 @@
       "rank": "Admiral"
     },
     {
-      "name": "Katakuri",
-      "crew": "Big Mom Pirates",
-      "id": "4"
-    },
-    {
       "id": "5",
       "name": "Kizaru",
       "rank": "Admiral"
+    },
+    {
+      "id": "836e",
+      "name": "Helmeppo",
+      "rank": "Captain"
+    },
+    {
+      "id": "eb50",
+      "name": "Akainu",
+      "rank": "Fleet Admiral"
+    },
+    {
+      "name": "Rob Lucci",
+      "rank": "CP Aegis Zero",
+      "id": "95a9"
     }
   ]
 }

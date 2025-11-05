@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sitio con AJAX</title>
+    <style>
+      html {
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 16px;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      main {
+        flex-grow: 1;
+      }
+
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1440px;
+      }
+
+      .header {
+        padding: 0.5rem;
+        background-color: antiquewhite;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 3rem;
+        height: auto;
+        cursor: pointer;
+      }
+
+      .menu {
+        display: flex;
+        justify-content: space-between;
+        font-size: 115%;
+      }
+
+      .menu a {
+        color: chocolate;
+        padding: 0 1vw;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu a:hover {
+        opacity: 0.75;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <section class="header-content container">
+        <article class="logo">
+          <img src="./images/mugiwara-logo.png" alt="logo" />
+        </article>
+        <nav class="menu">
+          <a href="../ajax/assets/one-piece.html">One Piece</a>
+          <a href="../ajax/assets/vinland-saga.html">Vinland Saga</a>
+          <a href="../ajax/assets/mob-psycho.html">Mob Psycho 100</a>
+          <a href="../ajax/assets/perfect-blue.html">Perfect Blue</a>
+        </nav>
+      </section>
+    </header>
+    <main class="container"></main>
+    <footer class="footer container">
+      <p>
+        <small
+          >sitio creado por Lucio Alfredito, © 2025. All Rights Reserved</small
+        >
+      </p>
+    </footer>
+    <script>
+      const d = document;
+      const $main = d.querySelector("main");
+      const $fragment = d.createDocumentFragment();
+
+      const getHTML = async (url) => {
+        try {
+          let res = await fetch(url);
+
+          if (!res.ok) throw { status: res.status, statusText: res.statusText };
+
+          const html = await res.text();
+
+          $main.innerHTML = html;
+        } catch (err) {
+          let message = err.statusText || "Hubo un error";
+          $main.innerHTML = `<p><b> ${err.status}: ${message}</b></p>`;
+        }
+      };
+
+      d.addEventListener("DOMContentLoaded", (e) => {
+        getHTML("./assets/one-piece.html");
+      });
+
+      d.addEventListener("click", (e) => {
+        if (e.target.matches(".menu a")) {
+          e.preventDefault();
+          getHTML(e.target.href);
+        }
+      });
+    </script>
+  </body>
+</html>
