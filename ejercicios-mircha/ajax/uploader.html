@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uploader con AJAX</title>
+    <style>
+      html {
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 16px;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <main><input type="file" name="files" id="files" multiple /></main>
+    <script>
+      const d = document;
+      $main = d.querySelector("main");
+      $files = d.getElementById(files);
+
+      const uploader = async (file) => {
+        try {
+          const formData = new FormData();
+          formData.append("file", file);
+
+          const res = await fetch("/upload", {
+            method: "POST",
+            body: formData,
+          });
+
+          if (!res.ok) throw { status: res.status, statusText: res.statusText };
+
+          const data = await res.json();
+        } catch (err) {
+          let message = err.statusText || "Hubo un error";
+          $main.insertAdjacentHTML(
+            "afterend",
+            `<p><b> Error ${err.status}: ${message}</b></p>`
+          );
+        }
+      };
+
+      d.addEventListener("change", (e) => {
+        if (e.target === $files) {
+          const files = Array.from(e.target.files);
+          files.forEach((el) => uploader(el));
+        }
+      });
+    </script>
+  </body>
+</html>
