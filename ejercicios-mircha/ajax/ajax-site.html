@@ -73,30 +73,15 @@
     </style>
   </head>
   <body>
-    <header class="header">
-      <section class="header-content container">
-        <article class="logo">
-          <img src="./images/mugiwara-logo.png" alt="logo" />
-        </article>
-        <nav class="menu">
-          <a href="../ajax/assets/one-piece.html">One Piece</a>
-          <a href="../ajax/assets/vinland-saga.html">Vinland Saga</a>
-          <a href="../ajax/assets/mob-psycho.html">Mob Psycho 100</a>
-          <a href="../ajax/assets/perfect-blue.html">Perfect Blue</a>
-        </nav>
-      </section>
-    </header>
+    <div data-include="./assets/header.html"></div>
     <main class="container"></main>
-    <footer class="footer container">
-      <p>
-        <small
-          >sitio creado por Lucio Alfredito, © 2025. All Rights Reserved</small
-        >
-      </p>
-    </footer>
+    <div data-include="./assets/footer.html"></div>
+    <script src="./assets/include-html.js"></script>
     <script>
       const d = document;
       const $main = d.querySelector("main");
+      const $header = d.querySelector("header");
+      const $footer = d.querySelector("footer");
       const $fragment = d.createDocumentFragment();
 
       const getHTML = async (url) => {
