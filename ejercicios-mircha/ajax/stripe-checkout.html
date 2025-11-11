@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://js.stripe.com/clover/stripe.js" async></script>
+    <style>
+      .weapons {
+        max-width: 1600px;
+        display: flex;
+        align-items: center;
+      }
+
+      figure {
+        background-color: rgb(29, 24, 24);
+        color: white;
+        padding: 7px;
+        text-align: center;
+        transition: 0.4s all ease;
+        font-size: 24px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+
+      figure:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+        background-color: rgba(29, 24, 24, 0.857);
+      }
+
+      figure img {
+        width: 200px;
+        height: 200px;
+        border: 3px solid grey;
+      }
+    </style>
   </head>
   <body>
     <h1>Checkout con Stripe</h1>
@@ -15,8 +44,7 @@
         <figcaption></figcaption>
       </figure>
     </template>
-    <script>
-    </script>
+
     <script src="assets/stripe-checkout.js" type="module"></script>
   </body>
 </html>
