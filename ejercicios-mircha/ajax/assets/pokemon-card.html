@@ -1,3 +1,91 @@
-<img src="" alt="">
-<h3></h3>
-<p></p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Card</title>
+    <link rel="stylesheet" href="./pokemon-card.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <img
+        id="pokeapi-logo"
+        src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
+        alt=""
+      />
+      <section class="pokemon-container">
+        <div class="pokemon">
+          <img id="pokemon-img" src="" alt="Pokemon Image" />
+          <h2 id="pokemon-name"></h2>
+          <div class="type-container">
+            <p id="pokemon-type1"></p>
+          </div>
+          <div class="type-container">
+            <p id="pokemon-type2"></p>
+          </div>
+          <p id="error" style="color: red"></p>
+        </div>
+        <div class="pokemon-info">
+          <div class="left-container">
+            <h3>Abilities</h3>
+            <div class="ability-container">
+              <p id="pokemon-ability1"></p>
+            </div>
+            <div class="ability-container">
+              <p id="pokemon-ability2"></p>
+            </div>
+          </div>
+          <div class="table-container">
+            <table
+              aria-label="Tabla de stats"
+              border="1"
+              cellspacing="0"
+              cellpadding="6"
+            >
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>BASE STAT</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>HP</td>
+                  <td id="pokemon-hp"></td>
+                </tr>
+                <tr>
+                  <td>ATK</td>
+                  <td id="pokemon-atk"></td>
+                </tr>
+                <tr>
+                  <td>DEF</td>
+                  <td id="pokemon-def"></td>
+                </tr>
+                <tr>
+                  <td>SPA</td>
+                  <td id="pokemon-spa"></td>
+                </tr>
+                <tr>
+                  <td>SPD</td>
+                  <td id="pokemon-spd"></td>
+                </tr>
+                <tr>
+                  <td>SPE</td>
+                  <td id="pokemon-spe"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/ejercicios-mircha/ajax/assets/pokeapi.js"></script>
+  </body>
+</html>
