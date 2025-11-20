@@ -20,14 +20,11 @@ const getPokemons = async (url) => {
 
     let json = await res.json();
 
-    for (const el of json.results) {
-      let pokemonRes = await fetch(el.url);
+    let pokemonData = await Promise.all(
+      json.results.map((el) => fetch(el.url).then((p) => p.json()))
+    );
 
-      if (!pokemonRes.ok)
-        throw { status: res.status, statusText: res.statusText };
-
-      let pokemon = await pokemonRes.json();
-
+    for (const pokemon of pokemonData) {
       const $div = d.createElement("div");
       const $img = d.createElement("img");
       const $h3 = d.createElement("h3");
@@ -54,10 +51,10 @@ const getPokemons = async (url) => {
 
 getPokemons(`https://pokeapi.co/api/v2/pokemon?offset=${offset}`);
 
-const getPokemonCard = (id, pokemonName) => {
+const getPokemonCard = (pokemonName) => {
   let $url = document.URL;
   $url = `http://127.0.0.1:5500/ejercicios-mircha/ajax/assets/pokemon-card.html?name=${pokemonName}`;
-  open($url);
+  location = $url;
 };
 
 d.addEventListener("click", (e) => {
@@ -103,6 +100,12 @@ if (pokemonName) {
         );
       }
 
+      if (!ability2) {
+        d.querySelector(".ability-container:nth-of-type(2)").classList.remove(
+          "ability-container"
+        );
+      }
+
       d.querySelector("#pokemon-type1").textContent = type1;
       d.querySelector("#pokemon-type2").textContent = type2;
 
@@ -115,11 +118,15 @@ if (pokemonName) {
       d.querySelector("#pokemon-spa").textContent = pokemon.stats[3].base_stat;
       d.querySelector("#pokemon-spd").textContent = pokemon.stats[4].base_stat;
       d.querySelector("#pokemon-spe").textContent = pokemon.stats[5].base_stat;
+
+      d.querySelector(".pokemon-shiny").setAttribute(
+        "src",
+        `${pokemon.sprites.front_shiny}`
+      );
     })
 
     .catch((err) => {
       d.querySelector("#error").textContent = err.message;
     });
 } else {
-  d.getElementById("error").textContent = "No Pokémon specified.";
 }
