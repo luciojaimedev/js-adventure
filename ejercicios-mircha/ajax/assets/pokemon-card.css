@@ -13,9 +13,13 @@ html {
 h2,
 h3,
 p {
+    text-transform: uppercase;
+  font-size: 24px;
+  color: beige;
   margin: 0;
   font-family: "Space Mono", monospace;
 }
+
 
 main {
   width: 100%;
@@ -47,17 +51,6 @@ h3::first-letter {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 25px;
   padding-right: 1px;
-}
-
-h3 {
-  color: white;
-  font-size: 26px;
-}
-
-p {
-  text-transform: uppercase;
-  font-size: 24px;
-  color: beige;
 }
 
 main div {
@@ -93,6 +86,13 @@ main div {
   background-color: #034fd1;
   border: 3px solid black;
   width: 90%;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.type-container:hover,
+.ability-container:hover {
+  transform: scale(0.9);
 }
 
 .ability-container p {
@@ -102,13 +102,14 @@ main div {
 
 .pokemon-info {
   width: 500px;
-  height: 350px;
+  height: 450px;
   background-color: #e7b614;
   border: 2px solid #034fd1;
   border-radius: 20px;
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
+  padding: 0px 20px 0px 20px;
 }
 
 .left-container {
@@ -123,6 +124,7 @@ main div {
 table {
   border: 1px solid beige;
   text-align: center;
+  height: 100%;
 }
 
 td,
@@ -130,4 +132,9 @@ th {
   background-color: #3b3b3b;
   color: beige;
   padding: 10px;
+}
+
+.pokemon-shiny {
+  width: 100px;
+  height: 100px;
 }

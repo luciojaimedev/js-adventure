@@ -111,10 +111,11 @@ main {
 main > img {
   cursor: pointer;
   padding: 50px;
+  transition: transform 1.5s ease;
 }
 
 main > img:hover {
-  animation: mirrorLogo 1.5s ease-in-out;
+  animation: mirrorLogo 1.5s ease-in-out forwards;
 }
 
 .pokemons {
