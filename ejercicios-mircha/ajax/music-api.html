@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music API</title>
+    <link rel="stylesheet" href="./assets/music-api.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="artist-search-container">
+          <input
+            id="artist-search"
+            type="text"
+            placeholder="Ingresa tu artista"
+          />
+          <button id="artist-search-btn">Buscar</button>
+        </div>
+        <div class="song-search-container">
+          <input
+            id="song-search"
+            type="text"
+            placeholder="Ingresa la cancion"
+          />
+          <button id="song-search-btn">Buscar</button>
+        </div>
+      </section>
+      <section id="music-section">
+        <div class="artist-container">
+          <template id="artist-template">
+            <article class="artist">
+              <h3></h3>
+              <img src="" alt="" />
+              <div class="biography-box"></div>
+              <a href=""></a>
+            </article>
+          </template>
+        </div>
+        <div class="song-container">
+          <template id="song-template">
+            <article class="song">
+              <h3></h3>
+              <div class="lyrics-box"></div>
+            </article>
+          </template>
+        </div>
+      </section>
+    </main>
+
+    <script src="./assets/music-api.js"></script>
+  </body>
+</html>

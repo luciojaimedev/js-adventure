@@ -9,15 +9,22 @@
   <body>
     <h1>Buscador de series</h1>
     <input type="search" name="" id="search" placeholder="Buscar serie" />
+    <button id="search-btn">Buscar</button>
     <section id="shows-query" class="grid-fluid"></section>
     <template id="show-template">
-      <article id="show">
+      <article class="show">
         <h3></h3>
-        <div></div>
+
+        <div class="summary-box">
+          <p class="summary"></p>
+          <button class="toggle-summary"></button>
+        </div>
+
         <img src="" alt="" />
         <a href=""></a>
       </article>
     </template>
+
     <script src="./assets/api-tv-shows.js"></script>
   </body>
 </html>
