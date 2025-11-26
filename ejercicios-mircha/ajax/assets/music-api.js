@@ -1,68 +1,111 @@
 const d = document,
   $songSearch = d.getElementById("song-search"),
   $artistSearch = d.getElementById("artist-search"),
-  $artist = d.querySelector(".artist");
+  $artist = d.querySelector(".artist"),
+  $song = d.querySelector(".song-container");
 
 const getArtist = async () => {
   try {
-    let artist = $artistSearch.value;
-    let res = await fetch(
+    const artist = $artistSearch.value.trim();
+    const $artistContainer = d.querySelector(".artist-container");
+
+    if (!artist) {
+      $artistContainer.innerHTML = "<p>Ingresa un artista</p>";
+      return;
+    }
+
+    const res = await fetch(
       `https://www.theaudiodb.com/api/v1/json/123/search.php?s=${artist}`
     );
 
     if (!res.ok) throw { status: res.status, statusText: res.statusText };
 
-    let json = await res.json();
+    const json = await res.json();
     console.log(json.artists);
 
-    const template = document.getElementById("artist-template").content;
-    const clone = document.importNode(template, true);
+    $artistContainer.innerHTML = "";
 
-    d.querySelector(".artist-container").innerHTML = "";
+    if (!json.artists) {
+      $artistContainer.innerHTML = `<p>Artista no encontrado</p>`;
+      return;
+    }
 
-    clone.querySelector("h3").textContent = json.artists[0].strArtist;
-    clone.querySelector("img").src = json.artists[0].strArtistThumb;
-    clone.querySelector("img").alt = json.artists[0].strArtist;
+    const data = json.artists[0];
+    const template = d.getElementById("artist-template").content;
+    const clone = d.importNode(template, true);
+
+    clone.querySelector("img").src = data.strArtistThumb;
+    clone.querySelector("img").alt = data.strArtist;
     clone.querySelector(".biography-box").textContent =
-      json.artists[0].strBiographyEN;
-    clone.querySelector("a").href = json.artists[0].strWebsite;
-    clone.querySelector("a").textContent = "Website";
+      data.strBiographyEN || "Sin biografía disponible";
+    clone.querySelector("a").href = data.strWebsite || "#";
+    clone.querySelector("a").textContent = data.strWebsite
+      ? "Website"
+      : "Sin sitio";
 
-    d.querySelector(".artist-container").innerHTML = "";
-    d.querySelector(".artist-container").appendChild(clone);
+    $artistContainer.appendChild(clone);
   } catch (err) {
     console.log(err);
-    let message = err.statusText || "Ocurrió un error";
-    $artist.innerHTML = `<p>Error ${err.status}: ${message}`;
+    const message = err.statusText || "Ocurrió un error";
+    d.querySelector(".artist-container").innerHTML = `<p>Error: ${message}</p>`;
   }
 };
 
-const getSong = async (e, url) => {
+const getSong = async () => {
   try {
-  } catch (err) {}
+    const artist = $artistSearch.value.trim();
+    const song = $songSearch.value.trim();
+
+    if (!artist || !song) {
+      $song.innerHTML = "<p>Ingresa artista y canción</p>";
+      return;
+    }
+
+    const res = await fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`);
+
+    if (!res.ok) throw { status: res.status, statusText: res.statusText };
+
+    const json = await res.json();
+    console.log(json);
+
+    $song.innerHTML = `<pre>${json.lyrics || "Letra no encontrada"}</pre>`;
+  } catch (err) {
+    console.log(err);
+    const message = err.statusText || "Ocurrió un error";
+    $song.innerHTML = `<p>Error: ${message}</p>`;
+  }
 };
 
-d.addEventListener("keypress", async (e) => {
-  if (e.target.matches("#artist-search")) {
-    if (e.key === "Enter") {
-      console.log($artistSearch.value);
-      getArtist();
-    }
-  }
-  if (e.target.matches("#song-search")) {
-    if (e.key === "Enter") {
-      console.log($songSearch.value);
-      getArtist();
-    }
-  }
-});
-
-d.addEventListener("click", async (e) => {
-  if (e.target.matches("#artist-search-btn")) {
+d.addEventListener("keypress", (e) => {
+  if (e.target.matches("#artist-search") && e.key === "Enter") {
     getArtist();
   }
 
-  if (e.target.matches("#song-search-btn")) {
+  if (e.target.matches("#song-search") && e.key === "Enter") {
     getSong();
   }
 });
+
+d.addEventListener("click", (e) => {
+  if (e.target.matches("#artist-search-btn")) getArtist();
+  if (e.target.matches("#song-search-btn")) getSong();
+});
+
+
+
+// const anArrayOfThings = [
+//   { name: "4K Monitor", price: 349.99 },
+//   { name: "Mechanical Keyboard", price: 129.5 },
+//   { name: "Wireless Mouse", price: 59.9 },
+//   { name: "Ergonomic Chair", price: 219.0 },
+//   { name: "ANC Headphones", price: 189.99 },
+// ];
+
+// const filteredArray = anArrayOfThings.filter((el) => el.price > 150);
+
+// const discountArray = filteredArray.map((el) => ({
+//   ...el,
+//   discount: el.name.includes("4K") ? "20%" : "15%",
+// }));
+// console.log(filteredArray);
+// console.log(discountArray);

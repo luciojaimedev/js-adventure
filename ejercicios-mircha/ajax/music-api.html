@@ -6,8 +6,25 @@
     <title>Music API</title>
     <link rel="stylesheet" href="./assets/music-api.css" />
   </head>
+
   <body>
     <main>
+      <template id="artist-template">
+        <article class="artist">
+          <h3></h3>
+          <img src="" alt="" />
+          <div class="biography-box"></div>
+          <a href="" target="_blank">Website</a>
+        </article>
+      </template>
+
+      <template id="song-template">
+        <article class="song">
+          <h3></h3>
+          <div class="lyrics-box"></div>
+        </article>
+      </template>
+
       <section>
         <div class="artist-search-container">
           <input
@@ -17,34 +34,20 @@
           />
           <button id="artist-search-btn">Buscar</button>
         </div>
+
         <div class="song-search-container">
           <input
             id="song-search"
             type="text"
-            placeholder="Ingresa la cancion"
+            placeholder="Ingresa la canción"
           />
           <button id="song-search-btn">Buscar</button>
         </div>
       </section>
+
       <section id="music-section">
-        <div class="artist-container">
-          <template id="artist-template">
-            <article class="artist">
-              <h3></h3>
-              <img src="" alt="" />
-              <div class="biography-box"></div>
-              <a href=""></a>
-            </article>
-          </template>
-        </div>
-        <div class="song-container">
-          <template id="song-template">
-            <article class="song">
-              <h3></h3>
-              <div class="lyrics-box"></div>
-            </article>
-          </template>
-        </div>
+        <div class="artist-container"></div>
+        <div class="song-container"></div>
       </section>
     </main>
 
