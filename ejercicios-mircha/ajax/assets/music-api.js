@@ -91,21 +91,20 @@ d.addEventListener("click", (e) => {
   if (e.target.matches("#song-search-btn")) getSong();
 });
 
+const anArrayOfThings = [
+  { name: "4K Monitor", price: 349.99 },
+  { name: "Mechanical Keyboard", price: 129.5 },
+  { name: "Wireless Mouse", price: 59.9 },
+  { name: "Ergonomic Chair", price: 219.0 },
+  { name: "ANC Headphones", price: 189.99 },
+];
 
+const filteredArray = anArrayOfThings.filter((el) => el.price > 150);
 
-// const anArrayOfThings = [
-//   { name: "4K Monitor", price: 349.99 },
-//   { name: "Mechanical Keyboard", price: 129.5 },
-//   { name: "Wireless Mouse", price: 59.9 },
-//   { name: "Ergonomic Chair", price: 219.0 },
-//   { name: "ANC Headphones", price: 189.99 },
-// ];
+const discountArray = filteredArray.map((el) => ({
+  ...el,
+  discount: el.name.includes("4K") ? "20%" : "15%",
+}));
 
-// const filteredArray = anArrayOfThings.filter((el) => el.price > 150);
-
-// const discountArray = filteredArray.map((el) => ({
-//   ...el,
-//   discount: el.name.includes("4K") ? "20%" : "15%",
-// }));
-// console.log(filteredArray);
-// console.log(discountArray);
+console.log(filteredArray);
+console.log(discountArray);
