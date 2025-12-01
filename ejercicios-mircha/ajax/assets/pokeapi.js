@@ -128,5 +128,28 @@ if (pokemonName) {
     .catch((err) => {
       d.querySelector("#error").textContent = err.message;
     });
-} else {
 }
+
+d.addEventListener("keydown", async (e) => {
+  if (e.target.matches("#search") && e.key === "Enter") {
+    const query = e.target.value.trim().toLowerCase();
+
+    if (query === "") {
+      getPokemons(
+        `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`
+      );
+      return;
+    }
+
+    try {
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
+      if (!res.ok) throw new Error("No encontrado");
+
+      const pokemon = await res.json();
+
+      renderSinglePokemon(pokemon);
+    } catch (err) {
+      $pokemons.innerHTML = `<p>No se encontró el Pokémon</p>`;
+    }
+  }
+});
