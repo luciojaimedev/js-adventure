@@ -17,3 +17,5 @@ export default {
   SEARCH,
   CATEGORIES,
 };
+
+console.log(POSTS)
