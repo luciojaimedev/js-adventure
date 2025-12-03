@@ -1,4 +1,4 @@
-const NAME = "css-tricks",
+const NAME = "wptavern",
   DOMAIN = `https://${NAME}.com`,
   SITE = `${DOMAIN}/wp-json`,
   API_WP = `${SITE}/wp/v2`,
@@ -18,4 +18,4 @@ export default {
   CATEGORIES,
 };
 
-console.log(POSTS)
+console.log(POSTS);

@@ -1,20 +1,25 @@
-import api from "../helpers/wp_api.js";
-
 export function PostCard(props) {
-  let featured = props._embedded["wp:featuredmedia"]
-    ? props._embedded["wp:featuredmedia"][0].source_url
+  let { date, id, slug, title, _embedded } = props;
+
+  let featured = _embedded["wp:featuredmedia"]
+    ? _embedded["wp:featuredmedia"][0].source_url
     : "https://via.placeholder.com/300";
 
-  let date = new Date(props.date).toLocaleDateString();
+  let dateFormat = new Date(date).toLocaleDateString();
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.matches(".post-card a")) return false;
+    localStorage.setItem("wpPostId", e.target.dataset.id);
+  });
 
   return `
     <article class="post-card">
-    <img src=${featured} alt=${props.title.rendered}>
-    <h2>${props.title.rendered}</h2>
-    <p>
-    <time datetime=${date}>Fecha: ${date}</time>
-    <a href="#/${props.link}" target="_blank">Ver Publicacion</a>
-    </p>
+      <img src="${featured}" alt="${title.rendered}">
+      <h2>${title.rendered}</h2>
+      <p>
+        <time datetime="${date}">Fecha: ${dateFormat}</time>
+        <a href="#/${id}" data-id="${id}">Ver Publicación</a>
+      </p>
     </article>
     `;
 }

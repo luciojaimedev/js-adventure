@@ -1,5 +1,5 @@
 import { App } from "./App.js";
+import { Router } from "./app/components/Router.js";
 
-const d = document;
-
-d.addEventListener("DOMContentLoaded", App);
+document.addEventListener("DOMContentLoaded", App);
+window.addEventListener("hashchange", () => Router());

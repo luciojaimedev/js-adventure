@@ -7,6 +7,8 @@ export function Menu() {
   <a href="#/search">Busqueda</a>
   <span>-</span>
   <a href="https://aprendejavascript.org" target="_blank" rel="noopener">Aprende JS</a>
+  <span>-</span>
+  <a href="#/contacto" target="_blank" rel="noopener">Contacto</a>
   `;
   return $menu;
 }
