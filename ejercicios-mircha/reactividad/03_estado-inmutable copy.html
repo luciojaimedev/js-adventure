@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reactividad del Estado</title>
+  </head>
+  <body>
+    <h1>Reactividad del Estado</h1>
+    <form id="todo-form">
+      <input type="text" id="todo-item" placeholder="Tarea por hacer" />
+      <input type="submit" value="Agregar" />
+    </form>
+    <h2>Lista de Tareas</h2>
+    <ul id="todo-list"></ul>
+    <h3 id="h3"></h3>
+  </body>
+  <script>
+    const d = document;
+
+    const state = {
+      todoList: [],
+      name: "",
+    };
+
+    const template = () => {
+      if (state.todoList < 1) {
+        return `<p> <em> Lista sin tareas </em> </p>`;
+      }
+
+      let todos = state.todoList.map((item) => `<li>${item}</li>`).join("");
+      let name = `<p> ${state.name} </p>`;
+
+      return {
+        todos,
+        name,
+      };
+    };
+
+    const render = () => {
+      const $list = d.getElementById("todo-list");
+      const $h3 = d.getElementById("h3");
+
+      if ($h3) $h3.innerHTML = template().todos;
+      if ($list) $list.innerHTML = template().name;
+    };
+
+    const setState = (obj) => {
+      for (let key in obj) {
+        if (state.hasOwnProperty(key)) {
+          state[key] = obj[key];
+        }
+      }
+      render();
+    };
+
+    const getState = () => JSON.parse(JSON.stringify(state));
+
+    d.addEventListener("DOMContentLoaded", render);
+
+    setState({
+      todoList: ["Charly", "Pachu", "Lucio"],
+      name: "Lucio",
+    });
+
+    const items = getState();
+    items.todoList.push("Dibella");
+
+    d.addEventListener("submit", (e) => {
+      if (!e.target.matches("#todo-form")) return false;
+
+      e.preventDefault();
+
+      const $item = d.getElementById("todo-item");
+      if (!$item) return;
+
+      const lastState = getState();
+      lastState.todoList.push($item.value);
+      setState({
+        todoList: lastState.todoList,
+      });
+
+      $item.value = "";
+      $item.focus();
+    });
+  </script>
+</html>
